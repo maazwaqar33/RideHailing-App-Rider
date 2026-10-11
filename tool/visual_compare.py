@@ -11,7 +11,6 @@ from PIL import Image, ImageChops, ImageDraw
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STITCH = os.path.join(os.path.dirname(os.path.dirname(ROOT)), 'POC', 'stitch_nordic_ride_hailing_app')
-STITCH = r'C:\Users\syedp\Desktop\POC\stitch_nordic_ride_hailing_app'
 QA = os.path.join(ROOT, 'docs', 'visual-qa')
 RENDER = os.path.join(QA, 'flutter')
 H = 1500

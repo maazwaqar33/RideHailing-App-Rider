@@ -1,5 +1,0 @@
-00:00 +0: loading C:/Users/syedp/Desktop/POC/rider_app/test/visual/visual_qa_test.dart
-00:00 +0: splash_screen@restore_failed
-00:01 +1: splash_screen@restore_failed_360x640
-00:02 +2: splash_screen@restore_failed_360x640_text1.6
-00:03 +3: All tests passed!

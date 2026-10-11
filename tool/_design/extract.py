@@ -1,7 +1,8 @@
 import re, os, sys, hashlib, urllib.request, json
-SRC = r'C:\Users\syedp\Desktop\POC\stitch_nordic_ride_hailing_app'
-OUT = r'C:\Users\syedp\Desktop\POC\rider_app\tool\_design\body'
-IMG = r'C:\Users\syedp\Desktop\POC\rider_app\assets\design'
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+SRC = os.path.join(os.path.dirname(BASE), 'stitch_nordic_ride_hailing_app')
+OUT = os.path.join(BASE, 'tool', '_design', 'body')
+IMG = os.path.join(BASE, 'assets', 'design')
 os.makedirs(OUT, exist_ok=True); os.makedirs(IMG, exist_ok=True)
 urlmap = {}
 def fetch(url):
