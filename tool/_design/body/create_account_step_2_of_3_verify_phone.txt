@@ -1,0 +1,158 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-space-xs" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<img alt="logo.jpg" class="h-8 w-auto object-contain hidden sm:block" src="IMG[c9218c04df.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-on-surface tracking-tight truncate max-w-[200px]">Multi Step Signup</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen">
+<div class="flex flex-col w-full pb-safe">
+<div class="px-margin-mobile pt-4 flex flex-col gap-y-6">
+<div class="flex flex-col gap-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider font-semibold">Step 2 of 3</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Phone Security</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full transition-all duration-500 ease-out" style="width: 66%;">
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-y-1.5">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Enter verification code</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">We sent a 6-digit code via SMS to your Norwegian mobile number.</p>
+</div>
+<div class="flex items-center justify-between p-3.5 bg-surface-container-low rounded-xl shadow-sm">
+<div class="flex items-center gap-x-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-[18px]">
+ 🇳🇴
+ </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Registered Number</span>
+<span class="font-title-sm text-title-sm text-on-surface tracking-wide">+47 941 23 891</span>
+</div>
+</div>
+<button class="font-label-lg text-label-lg text-secondary font-semibold hover:opacity-80 transition-opacity px-2 py-1" type="button">
+ Change
+ </button>
+</div>
+<div class="flex flex-col gap-y-3 pt-2">
+<div class="flex justify-between items-center gap-x-2" id="otp-container">
+<input class="otp-field w-12 h-14 text-center font-currency-display text-currency-display bg-surface-container-lowest text-on-surface rounded-xl shadow-sm focus:outline-none focus:bg-surface-container-high transition-all selection:bg-transparent" inputmode="numeric" maxlength="1" type="text" value="4"/>
+<input class="otp-field w-12 h-14 text-center font-currency-display text-currency-display bg-surface-container-lowest text-on-surface rounded-xl shadow-sm focus:outline-none focus:bg-surface-container-high transition-all selection:bg-transparent" inputmode="numeric" maxlength="1" type="text" value="8"/>
+<input class="otp-field w-12 h-14 text-center font-currency-display text-currency-display bg-surface-container-lowest text-on-surface rounded-xl shadow-sm focus:outline-none focus:bg-surface-container-high transition-all selection:bg-transparent" inputmode="numeric" maxlength="1" type="text" value="2"/>
+<input autofocus="" class="otp-field w-12 h-14 text-center font-currency-display text-currency-display bg-secondary-container text-on-secondary-container rounded-xl shadow-sm focus:outline-none focus:bg-secondary-container transition-all selection:bg-transparent" inputmode="numeric" maxlength="1" type="text" value=""/>
+<input class="otp-field w-12 h-14 text-center font-currency-display text-currency-display bg-surface-container-lowest text-on-surface rounded-xl shadow-sm focus:outline-none focus:bg-surface-container-high transition-all selection:bg-transparent" inputmode="numeric" maxlength="1" type="text" value=""/>
+<input class="otp-field w-12 h-14 text-center font-currency-display text-currency-display bg-surface-container-lowest text-on-surface rounded-xl shadow-sm focus:outline-none focus:bg-surface-container-high transition-all selection:bg-transparent" inputmode="numeric" maxlength="1" type="text" value=""/>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant text-center flex items-center justify-center gap-1.5 pt-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+ BankID verified encryption for Oslo transit
+ </p>
+</div>
+<div class="flex flex-col items-center justify-center py-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-lg text-label-lg" id="resend-wrapper">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>Resend code in</span>
+<span class="font-semibold text-on-surface" id="countdown">00:42</span>
+</div>
+<button class="hidden font-label-lg text-label-lg text-secondary font-semibold hover:opacity-80 transition-opacity" id="resend-btn" type="button">
+ Resend SMS Code
+ </button>
+</div>
+<div class="flex flex-col gap-y-3 pt-4">
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-title-sm text-title-sm flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-md" id="verify-button" type="button">
+<span>Verify</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">bolt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">Vipps Smart Connect</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+ Your Norwegian phone number will be pre-linked with Vipps for instant, passwordless ride confirmation.
+ </p>
+</div>
+</div>
+</div>
+</div>
+<script>
+ (function() {
+ const inputs = document.querySelectorAll('.otp-field');
+ const verifyBtn = document.getElementById('verify-button');
+ const countdownEl = document.getElementById('countdown');
+ const resendWrapper = document.getElementById('resend-wrapper');
+ const resendBtn = document.getElementById('resend-btn');
+
+ inputs.forEach((input, index) => {
+ input.addEventListener('input', (e) => {
+ const val = e.target.value;
+ if (val.length === 1 && index < inputs.length - 1) {
+ inputs[index + 1].focus();
+ }
+ highlightActive();
+ });
+
+ input.addEventListener('keydown', (e) => {
+ if (e.key === 'Backspace' && !input.value && index > 0) {
+ inputs[index - 1].focus();
+ }
+ });
+
+ input.addEventListener('focus', () => {
+ highlightActive();
+ });
+ });
+
+ function highlightActive() {
+ inputs.forEach(inp => {
+ if (document.activeElement === inp) {
+ inp.classList.remove('bg-surface-container-lowest');
+ inp.classList.add('bg-secondary-container', 'text-on-secondary-container');
+ } else {
+ inp.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+ inp.classList.add('bg-surface-container-lowest');
+ }
+ });
+ }
+
+ let secondsLeft = 42;
+ const timer = setInterval(() => {
+ secondsLeft--;
+ if (secondsLeft <= 0) {
+ clearInterval(timer);
+ resendWrapper.classList.add('hidden');
+ resendBtn.classList.remove('hidden');
+ } else {
+ const formatted = secondsLeft < 10 ? '0' + secondsLeft : secondsLeft;
+ countdownEl.textContent = '00:' + formatted;
+ }
+ }, 1000);
+
+ resendBtn.addEventListener('click', () => {
+ secondsLeft = 45;
+ resendBtn.classList.add('hidden');
+ resendWrapper.classList.remove('hidden');
+ countdownEl.textContent = '00:45';
+ });
+ })();
+ </script>
+</div>
+</main>
+</body>
+</html>

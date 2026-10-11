@@ -1,0 +1,202 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-space-xs" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<img alt="logo.jpg" class="h-8 w-auto object-contain hidden sm:block" src="IMG[c9218c04df.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-on-surface tracking-tight truncate max-w-[200px]">Multi Step Signup</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen">
+<div class="flex flex-col w-full px-margin-mobile pb-space-xl">
+<!-- Progress Header Meta -->
+<div class="flex items-center justify-between pt-space-md pb-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-secondary font-semibold">Oslo Mobility ID</span>
+<span class="font-label-md text-label-md font-semibold text-primary-container px-space-sm py-0.5 rounded-full bg-surface-container-high">Step 1 of 3</span>
+</div>
+<!-- Scandinavian Modern Stepper Progress Bar (No borders, pure background surface contrast) -->
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden my-space-xs">
+<div class="h-full bg-secondary-container w-1/3 rounded-full transition-all duration-500 ease-out shadow-sm" style="background-color: #14B8A6;">
+</div>
+</div>
+<!-- Step Motivation & Delight Micro-Banner -->
+<div class="mt-space-md mb-space-lg flex items-center justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">electric_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">Zero-emission journeys</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Instant access to EV fleets across Norway</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-highest px-space-xs py-1 rounded font-bold">100% EL</span>
+</div>
+<!-- Form Section -->
+<form class="flex flex-col gap-space-md w-full" id="step-one-form" onsubmit="event.preventDefault();">
+<!-- 1. Full Name (SUCCESS STATE) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface font-medium" for="fullName">Full Name</label>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-0.5 font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span> Verified ID
+ </span>
+</div>
+<div class="relative flex items-center rounded-xl bg-surface-container-lowest shadow-sm transition-all focus-within:shadow-md">
+<div class="absolute left-space-md flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<input class="w-full h-14 pl-12 pr-12 rounded-xl bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" id="fullName" placeholder="Enter legal name" type="text" value="Sara Hansen"/>
+<div class="absolute right-space-md flex items-center">
+<div class="w-6 h-6 rounded-full bg-secondary/15 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-secondary font-bold">check</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Email Address (VALID STATE) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface font-medium" for="email">Email address</label>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-0.5 font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Available
+ </span>
+</div>
+<div class="relative flex items-center rounded-xl bg-surface-container-lowest shadow-sm transition-all focus-within:shadow-md">
+<div class="absolute left-space-md flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="w-full h-14 pl-12 pr-12 rounded-xl bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" id="email" placeholder="your.name@domain.no" type="email" value="sara.hansen@example.no"/>
+<div class="absolute right-space-md flex items-center">
+<div class="w-6 h-6 rounded-full bg-secondary/15 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-secondary font-bold">check</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Password Field (ERROR STATE) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface font-medium" for="password">Password</label>
+<span class="font-label-sm text-label-sm text-error font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">warning</span> Action required
+ </span>
+</div>
+<div class="relative flex items-center rounded-xl bg-error-container/30 shadow-sm transition-all">
+<div class="absolute left-space-md flex items-center pointer-events-none text-error">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="w-full h-14 pl-12 pr-20 rounded-xl bg-transparent font-body-md text-body-md text-error placeholder:text-outline focus:outline-none" id="password" placeholder="Create safe password" type="text" value="polestar2"/>
+<div class="absolute right-space-md flex items-center gap-space-xs">
+<button aria-label="Toggle password visibility" class="text-error/80 hover:text-error transition-colors p-1" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<div class="w-6 h-6 rounded-full bg-error text-on-error flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold">priority_high</span>
+</div>
+</div>
+</div>
+<!-- Explicit Error Callout Box -->
+<div class="flex items-start gap-space-xs p-space-sm bg-error-container text-on-error-container rounded-lg mt-1">
+<span class="material-symbols-outlined text-[18px] shrink-0 mt-0.5">error</span>
+<p class="font-label-sm text-label-sm">Password must be at least 8 characters and include a special symbol.</p>
+</div>
+<!-- Password Strength Meter: 4-bar Scandinavian Gauge -->
+<div class="mt-space-sm p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Security strength</span>
+<span class="font-label-md text-label-md text-on-tertiary-container font-bold uppercase tracking-wide">Medium</span>
+</div>
+<!-- 4-segment visual bar -->
+<div class="grid grid-cols-4 gap-1.5 w-full">
+<div class="h-2 rounded-full bg-on-tertiary-container">
+</div>
+<div class="h-2 rounded-full bg-on-tertiary-container">
+</div>
+<div class="h-2 rounded-full bg-surface-container-highest">
+</div>
+<div class="h-2 rounded-full bg-surface-container-highest">
+</div>
+</div>
+<!-- Explicit Rule Checklist -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<!-- Rule 1: Met -->
+<div class="flex items-center gap-space-xs text-on-surface">
+<div class="w-4 h-4 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[12px] text-secondary font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">At least 8 characters</span>
+</div>
+<!-- Rule 2: Met -->
+<div class="flex items-center gap-space-xs text-on-surface">
+<div class="w-4 h-4 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[12px] text-secondary font-bold">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Contains at least 1 number</span>
+</div>
+<!-- Rule 3: Missing (Red Cross) -->
+<div class="flex items-center gap-space-xs text-error font-medium">
+<div class="w-4 h-4 rounded-full bg-error text-on-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[12px] font-bold">close</span>
+</div>
+<span class="font-label-sm text-label-sm text-error">Contains at least 1 special symbol (!@#$%^&amp;*)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Vipps / BankID Security Assurance Card -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">BankID &amp; Vipps ready</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fast Oslo pass activation in step 2</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">verified_user</span>
+</div>
+<!-- Primary CTA: Confirm & Continue -->
+<div class="pt-space-sm flex flex-col gap-space-md">
+<button class="w-full h-14 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm flex items-center justify-center gap-space-xs shadow-md active:scale-[0.98] transition-transform duration-150" id="continue-btn" type="button">
+<span>Continue</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Bottom Account Alternative Link -->
+<div class="flex items-center justify-center gap-1.5 py-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Already have an account?</span>
+<button class="font-title-sm text-title-sm text-primary font-semibold hover:text-secondary transition-colors underline-offset-4 hover:underline" type="button">
+ Log in
+ </button>
+</div>
+</div>
+</form>
+</div>
+<script>
+ // Simple micro-interaction for tactile feedback on password corrections
+ const pwdInput = document.getElementById('password');
+ const continueBtn = document.getElementById('continue-btn');
+
+ if (continueBtn) {
+ continueBtn.addEventListener('click', () => {
+ // Gentle haptic-style button shake hint if password has error
+ continueBtn.classList.add('translate-x-1');
+ setTimeout(() => continueBtn.classList.remove('translate-x-1'), 120);
+ });
+ }
+</script>
+</main>
+</body>
+</html>

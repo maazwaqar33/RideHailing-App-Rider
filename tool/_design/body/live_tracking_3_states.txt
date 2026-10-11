@@ -1,0 +1,410 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-space-xs" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<img alt="logo.jpg" class="h-8 w-auto object-contain hidden sm:block" src="IMG[c9218c04df.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-on-surface tracking-tight truncate max-w-[200px]">Tracking</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen">
+<div class="flex flex-col w-full relative pb-safe">
+<!-- Interactive State Controller & Lifecycle Tracker -->
+<section class="w-full bg-surface-container-low px-margin-mobile pt-space-sm pb-space-md shadow-sm">
+<!-- Lifecycle Stepper Strip -->
+<div class="flex items-center justify-between w-full max-w-md mx-auto mb-space-sm px-space-xs">
+<!-- Step 1 -->
+<div class="flex items-center gap-1.5 opacity-60">
+<span class="w-2 h-2 rounded-full bg-outline">
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline">1. Finding</span>
+</div>
+<div class="h-0.5 w-4 bg-outline-variant">
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-1.5 opacity-80">
+<span class="w-2 h-2 rounded-full bg-secondary">
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline">2. Driver found</span>
+</div>
+<div class="h-0.5 w-4 bg-secondary">
+</div>
+<!-- Step 3 (Active Arriving) -->
+<div class="flex items-center gap-1.5 transition-all duration-300" id="step-arriving">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75">
+</span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary">
+</span>
+</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold" id="step-label-3">3. Arriving</span>
+</div>
+<div class="h-0.5 w-4 bg-outline-variant transition-colors duration-300" id="step-line-3">
+</div>
+<!-- Step 4 (In Trip) -->
+<div class="flex items-center gap-1.5 opacity-60 transition-all duration-300" id="step-intrip">
+<span class="w-2 h-2 rounded-full bg-outline transition-colors duration-300" id="step-dot-4">
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="step-label-4">4. In trip</span>
+</div>
+<div class="h-0.5 w-4 bg-outline-variant">
+</div>
+<!-- Step 5 (Done) -->
+<div class="flex items-center gap-1.5 opacity-50">
+<span class="w-2 h-2 rounded-full bg-outline-variant">
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline">5. Done</span>
+</div>
+</div>
+<!-- State Segmented Control -->
+<div class="bg-surface-container-high p-1 rounded-xl flex items-center justify-between gap-1 shadow-sm">
+<button class="flex-1 py-2 px-1 rounded-lg text-center transition-all bg-primary-container text-surface shadow-sm" id="tab-state-1" onclick="switchTripState(1)" type="button">
+<span class="font-label-md text-label-md block truncate">Driver on the way</span>
+</button>
+<button class="flex-1 py-2 px-1 rounded-lg text-center transition-all text-on-surface-variant hover:text-on-surface" id="tab-state-2" onclick="switchTripState(2)" type="button">
+<span class="font-label-md text-label-md block truncate">Driver arrived</span>
+</button>
+<button class="flex-1 py-2 px-1 rounded-lg text-center transition-all text-on-surface-variant hover:text-on-surface" id="tab-state-3" onclick="switchTripState(3)" type="button">
+<span class="font-label-md text-label-md block truncate">In trip</span>
+</button>
+</div>
+</section>
+<!-- Interactive Nordic Map Canvas -->
+<div class="relative w-full h-[400px] overflow-hidden bg-surface-container">
+<!-- Static Geo Canvas / Map Surface -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-location="Oslo Sentrum, Norway" style="background-image: url('IMG[ad962eef1f.png]')">
+</div>
+<!-- Atmospheric Map Route Layer & Road Network Simulation -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Nordic electric teal glow -->
+<filter height="140%" id="aurora-glow" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="0" flood-color="#4fdbc8" flood-opacity="0.8" stddeviation="4">
+</fedropshadow>
+</filter>
+</defs>
+<!-- Solid Travelled Route (Electric Aurora Teal) -->
+<path class="transition-all duration-700" d="M 40 330 C 110 310, 140 250, 190 210" fill="none" filter="url(#aurora-glow)" id="route-travelled" stroke="#006b5f" stroke-linecap="round" stroke-width="5">
+</path>
+<!-- Remaining Route (Dashed Fjord Navy/Slate) -->
+<path class="transition-all duration-700" d="M 190 210 C 240 170, 270 120, 340 70" fill="none" id="route-remaining" opacity="0.85" stroke="#00152f" stroke-dasharray="8 8" stroke-linecap="round" stroke-width="4">
+</path>
+<!-- Origin Marker: Electric Teal Pulsing Halo -->
+<g transform="translate(40, 330)">
+<circle class="animate-ping" fill="#6df5e1" opacity="0.4" r="9">
+</circle>
+<circle fill="#006b5f" r="5">
+</circle>
+<circle fill="#ffffff" r="2">
+</circle>
+</g>
+<!-- Destination Marker: Deep Fjord Navy Monument -->
+<g class="transition-all duration-500" id="destination-pin" transform="translate(340, 70)">
+<rect fill="#00152f" height="12" rx="3" width="12" x="-6" y="-6">
+</rect>
+<circle fill="#ffffff" r="2">
+</circle>
+</g>
+<!-- Vehicle Polestar 2 EV Marker with dynamic orientation -->
+<g class="transition-all duration-700" id="car-marker-group" transform="translate(190, 210) rotate(-38)">
+<!-- Pulse radar circle -->
+<circle fill="#6df5e1" opacity="0.25" r="20">
+</circle>
+<!-- Polestar 2 EV silhouette container -->
+<rect fill="#00152f" height="44" rx="8" stroke="#4fdbc8" stroke-width="2" width="28" x="-14" y="-22">
+</rect>
+<!-- Headlights beam simulation -->
+<polygon fill="#4fdbc8" opacity="0.3" points="-8,-22 8,-22 14,-36 -14,-36">
+</polygon>
+<circle cx="0" cy="-6" fill="#4fdbc8" r="3.5">
+</circle>
+<!-- EV Panoramic Glass Roof -->
+<rect fill="#304869" height="20" opacity="0.8" rx="3" width="14" x="-7" y="-14">
+</rect>
+<rect fill="#ffffff" height="4" opacity="0.9" rx="1.5" width="12" x="-6" y="10">
+</rect>
+</g>
+</svg>
+<!-- Floating Map Controls (Level 3 Elevation) -->
+<!-- Top-Left Live ETA Floating Pill -->
+<div class="absolute top-4 left-4 z-10 flex items-center gap-2 bg-surface/95 backdrop-blur-md px-3.5 py-2 rounded-full shadow-[0_12px_32px_-4px_rgba(15,42,74,0.18)]">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-fixed-dim opacity-75">
+</span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary">
+</span>
+</span>
+<div class="flex items-baseline gap-1">
+<span class="font-title-sm text-title-sm text-on-surface" id="eta-primary-text">ETA 3 min</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium" id="eta-sub-text">· 1.2 km</span>
+</div>
+</div>
+<!-- Top-Right Actions: Recenter & Live Traffic Flow -->
+<div class="absolute top-4 right-4 z-10 flex flex-col gap-2">
+<button aria-label="Toggle Live Traffic" class="w-11 h-11 rounded-full bg-surface/95 backdrop-blur-md flex items-center justify-center text-on-surface shadow-[0_4px_16px_-2px_rgba(15,42,74,0.12)] hover:bg-surface-container active:scale-95 transition-all" onclick="toggleTrafficPill(this)" type="button">
+<span class="material-symbols-outlined text-[20px] text-secondary">traffic</span>
+</button>
+<button aria-label="Recenter Map View" class="w-11 h-11 rounded-full bg-surface/95 backdrop-blur-md flex items-center justify-center text-on-surface shadow-[0_4px_16px_-2px_rgba(15,42,74,0.12)] hover:bg-surface-container active:scale-95 transition-all" onclick="recenterMapView()" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">my_location</span>
+</button>
+</div>
+<!-- Pickup Location Precision Badge -->
+<div class="absolute bottom-4 left-4 z-10 bg-primary/90 text-on-primary backdrop-blur-md px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-md">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">navigation</span>
+<span class="font-label-md text-label-md truncate max-w-[200px]" id="pickup-pill-text">Karl Johans gate 22</span>
+</div>
+</div>
+<!-- Draggable Bottom Sheet Container (Level 4 Elevation) -->
+<section class="w-full bg-surface-container-lowest rounded-t-3xl shadow-[0_-8px_30px_rgba(15,42,74,0.08)] relative -mt-4 z-20 px-margin-mobile pt-3 pb-space-lg flex flex-col gap-space-md">
+<!-- Centered Drag Handle -->
+<div class="w-full flex justify-center py-1">
+<span class="w-9 h-1 rounded-full bg-outline-variant/60 block">
+</span>
+</div>
+<!-- Dynamic Status Headline & Sub-caption -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]" id="status-icon">near_me</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight" id="status-heading">Erik is approaching pickup spot</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="status-description">Estimated pickup at main entrance</p>
+</div>
+<!-- Environmental Green Mobility Stamp -->
+<div class="bg-secondary-container/40 text-on-secondary-container px-2 py-1 rounded-md flex items-center gap-1 self-start">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span class="font-label-sm text-label-sm font-semibold">100% EV</span>
+</div>
+</div>
+<!-- Security PIN Card (Norwegian Punctuality & Safety Verification) -->
+<div class="bg-primary-container text-surface rounded-2xl p-space-md shadow-md flex items-center justify-between relative overflow-hidden transition-all duration-300" id="pin-card">
+<div class="flex flex-col z-10">
+<span class="font-label-sm text-label-sm tracking-wider uppercase text-on-primary-container font-semibold">Security PIN</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-widest text-surface">4821</span>
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">verified_user</span>
+</div>
+<span class="font-body-sm text-body-sm text-primary-fixed-dim mt-1">Share with Erik before entering car</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface/10 flex items-center justify-center text-surface-variant z-10">
+<span class="material-symbols-outlined text-[28px]">pin</span>
+</div>
+<!-- Ambient Faint Aurora Gradient Accents -->
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-secondary opacity-15 blur-xl pointer-events-none">
+</div>
+</div>
+<!-- Driver & Vehicle Profile Card (Level 2 Elevation) -->
+<div class="bg-surface-container-low rounded-2xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<!-- Driver Profile Info -->
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm bg-surface-container-high" data-alt="Warm and professional portrait of Erik Larsen, a friendly 38-year-old Norwegian driver wearing a minimalist dark wool sweater, crisp Scandinavian studio lighting, clean soft background." src="IMG[10340ab05b.jpg]"/>
+<div class="absolute -bottom-1 -right-1 bg-surface rounded-full p-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary fill-current block" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-sm text-title-sm text-on-surface">Erik Larsen</h3>
+<div class="flex items-center gap-1.5 mt-0.5">
+<div class="flex items-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md ml-0.5 text-on-surface font-semibold">4.9</span>
+</div>
+<span class="text-outline-variant font-label-sm">·</span>
+<span class="font-label-md text-label-md text-on-surface-variant">2,410 trips</span>
+</div>
+</div>
+</div>
+<!-- Vehicle Badge & Plate -->
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-on-surface">
+<span class="font-label-md text-label-md font-semibold">Polestar 2</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">electric_car</span>
+</div>
+<!-- Nordic EV License Plate Badge -->
+<div class="mt-1 bg-surface-container-lowest px-2.5 py-1 rounded shadow-sm flex items-center gap-1.5">
+<div class="w-2.5 h-3.5 bg-primary rounded-[1px] flex items-center justify-center">
+<span class="text-[7px] text-surface font-bold">N</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold tracking-wider">EL 12345</span>
+</div>
+</div>
+</div>
+<!-- Vehicle Specifications Pills -->
+<div class="flex items-center gap-2 pt-2 border-t-0">
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">airline_seat_recline_normal</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 seats</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">luggage</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Large trunk</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">device_thermostat</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">21.5°C</span>
+</div>
+</div>
+</div>
+<!-- Communication & Safety Action Buttons (Minimum 56px Touch Target) -->
+<div class="grid grid-cols-4 gap-2.5 w-full">
+<!-- Chat Button -->
+<button aria-label="Chat with Erik" class="h-14 rounded-2xl bg-surface-container-high text-on-surface flex flex-col items-center justify-center gap-0.5 active:scale-95 transition-transform shadow-sm hover:bg-surface-container-highest" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</button>
+<!-- Call Button -->
+<button aria-label="Call Erik" class="h-14 rounded-2xl bg-surface-container-high text-on-surface flex flex-col items-center justify-center gap-0.5 active:scale-95 transition-transform shadow-sm hover:bg-surface-container-highest" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">call</span>
+<span class="font-label-sm text-label-sm">Call</span>
+</button>
+<!-- Share Trip Button -->
+<button aria-label="Share trip details" class="h-14 rounded-2xl bg-surface-container-high text-on-surface flex flex-col items-center justify-center gap-0.5 active:scale-95 transition-transform shadow-sm hover:bg-surface-container-highest" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">ios_share</span>
+<span class="font-label-sm text-label-sm">Share</span>
+</button>
+<!-- Safety SOS Button -->
+<button aria-label="Safety toolkit and SOS" class="h-14 rounded-2xl bg-surface-container-high text-error flex flex-col items-center justify-center gap-0.5 active:scale-95 transition-transform shadow-sm hover:bg-error-container" type="button">
+<span class="material-symbols-outlined text-[20px] text-error" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-sm text-label-sm font-semibold">SOS</span>
+</button>
+</div>
+<!-- Fare & Vipps Payment Row -->
+<div class="bg-surface-container-low rounded-2xl p-space-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<!-- Vipps Official Stylized Emblem Container -->
+<div class="w-10 h-10 rounded-xl bg-tertiary-container flex items-center justify-center text-on-tertiary-container shadow-sm font-bold text-title-sm">
+<span class="font-headline-sm text-headline-sm leading-none font-bold text-on-tertiary-container">v</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Vipps</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Auto-charge</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+47 982 •• 412</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-currency-display text-currency-display text-on-surface tracking-tight">1,090 NOK</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fixed price incl. MVA</span>
+</div>
+</div>
+</section>
+<!-- State Transition Script -->
+<script>
+ function switchTripState(state) {
+ const tab1 = document.getElementById('tab-state-1');
+ const tab2 = document.getElementById('tab-state-2');
+ const tab3 = document.getElementById('tab-state-3');
+
+ const statusHeading = document.getElementById('status-heading');
+ const statusDesc = document.getElementById('status-description');
+ const statusIcon = document.getElementById('status-icon');
+ const etaPrimary = document.getElementById('eta-primary-text');
+ const etaSub = document.getElementById('eta-sub-text');
+ const pinCard = document.getElementById('pin-card');
+ const carGroup = document.getElementById('car-marker-group');
+ const pickupPill = document.getElementById('pickup-pill-text');
+
+ const stepArriving = document.getElementById('step-arriving');
+ const stepIntrip = document.getElementById('step-intrip');
+ const stepDot4 = document.getElementById('step-dot-4');
+ const stepLabel4 = document.getElementById('step-label-4');
+ const stepLine3 = document.getElementById('step-line-3');
+
+ // Reset tabs styling
+ [tab1, tab2, tab3].forEach(t => {
+ t.className = 'flex-1 py-2 px-1 rounded-lg text-center transition-all text-on-surface-variant hover:text-on-surface';
+ });
+
+ if (state === 1) {
+ // State 1: Driver on the way
+ tab1.className = 'flex-1 py-2 px-1 rounded-lg text-center transition-all bg-primary-container text-surface shadow-sm';
+ statusHeading.textContent = 'Erik is on the way';
+ statusDesc.textContent = 'Approaching from Dronning Eufemias gate';
+ statusIcon.textContent = 'navigation';
+ etaPrimary.textContent = 'ETA 3 min';
+ etaSub.textContent = '· 1.2 km';
+ pickupPill.textContent = 'Karl Johans gate 22';
+ pinCard.classList.remove('hidden');
+
+ // Map marker state
+ carGroup.setAttribute('transform', 'translate(140, 250) rotate(-38)');
+
+ // Stepper
+ stepArriving.classList.remove('opacity-60');
+ stepIntrip.classList.add('opacity-60');
+ stepDot4.className = 'w-2 h-2 rounded-full bg-outline transition-colors duration-300';
+ stepLabel4.className = 'font-label-sm text-label-sm text-on-surface-variant';
+ stepLine3.className = 'h-0.5 w-4 bg-outline-variant transition-colors duration-300';
+ } else if (state === 2) {
+ // State 2: Driver arrived
+ tab2.className = 'flex-1 py-2 px-1 rounded-lg text-center transition-all bg-primary-container text-surface shadow-sm';
+ statusHeading.textContent = 'Driver arrived';
+ statusDesc.textContent = 'Polestar 2 parked at designated pickup spot';
+ statusIcon.textContent = 'location_on';
+ etaPrimary.textContent = 'Arrived';
+ etaSub.textContent = '· Waiting outside';
+ pickupPill.textContent = 'Karl Johans gate 22';
+ pinCard.classList.remove('hidden');
+
+ // Map marker arrived at pickup point
+ carGroup.setAttribute('transform', 'translate(55, 315) rotate(-15)');
+
+ // Stepper
+ stepArriving.classList.remove('opacity-60');
+ stepIntrip.classList.add('opacity-60');
+ stepDot4.className = 'w-2 h-2 rounded-full bg-outline transition-colors duration-300';
+ stepLabel4.className = 'font-label-sm text-label-sm text-on-surface-variant';
+ stepLine3.className = 'h-0.5 w-4 bg-outline-variant transition-colors duration-300';
+ } else if (state === 3) {
+ // State 3: In trip
+ tab3.className = 'flex-1 py-2 px-1 rounded-lg text-center transition-all bg-primary-container text-surface shadow-sm';
+ statusHeading.textContent = 'Heading to Oslo Lufthavn';
+ statusDesc.textContent = 'Optimal route via E6 · Smooth traffic';
+ statusIcon.textContent = 'flight_takeoff';
+ etaPrimary.textContent = 'ETA 34 min';
+ etaSub.textContent = '· 47.8 km';
+ pickupPill.textContent = 'Destination: OSL Terminal 1';
+ pinCard.classList.add('hidden'); // Hide entry pin during actual transit
+
+ // Map marker moving forward along route
+ carGroup.setAttribute('transform', 'translate(260, 150) rotate(-42)');
+
+ // Stepper update
+ stepArriving.classList.add('opacity-60');
+ stepIntrip.classList.remove('opacity-60');
+ stepDot4.className = 'w-2.5 h-2.5 rounded-full bg-secondary transition-colors duration-300';
+ stepLabel4.className = 'font-label-sm text-label-sm text-secondary font-semibold';
+ stepLine3.className = 'h-0.5 w-4 bg-secondary transition-colors duration-300';
+ }
+ }
+
+ function toggleTrafficPill(btn) {
+ btn.classList.toggle('bg-secondary-container');
+ }
+
+ function recenterMapView() {
+ const carGroup = document.getElementById('car-marker-group');
+ carGroup.classList.add('scale-125');
+ setTimeout(() => {
+ carGroup.classList.remove('scale-125');
+ }, 350);
+ }
+ </script>
+</div>
+</main>
+</body>
+</html>

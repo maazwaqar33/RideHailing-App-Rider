@@ -1,0 +1,152 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<main class="flex flex-col relative w-full pt-safe pb-safe bg-surface min-h-screen">
+<div class="flex flex-col w-full px-margin-mobile pb-space-lg select-none">
+<!-- Top Utility Bar -->
+<div class="flex items-center justify-between w-full h-14">
+<div class="flex items-center space-x-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-container">
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Oslo Mobility</span>
+</div>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-2 px-3 rounded-full hover:bg-surface-container transition-all active:scale-95" id="skip-btn" type="button">
+ Skip
+ </button>
+</div>
+<!-- Illustration & Dynamic Interactive Graphic Container -->
+<div class="relative w-full rounded-xl bg-surface-container-low p-space-md shadow-sm overflow-hidden my-space-sm flex flex-col justify-between">
+<!-- Ambient Northern Aura Glow -->
+<div class="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none">
+</div>
+<div class="absolute -bottom-10 -left-10 w-36 h-36 rounded-full bg-surface-container-high/40 blur-2xl pointer-events-none">
+</div>
+<!-- Scandinavian City Silhouette Vector (Oslo Fjord stylized backdrop) -->
+<div class="w-full h-44 relative flex items-center justify-center overflow-hidden rounded-lg bg-surface-container-lowest shadow-sm">
+<svg class="absolute inset-0 w-full h-full text-surface-container opacity-60" fill="none" preserveaspectratio="none" viewbox="0 0 320 180">
+<path d="M0 130L35 110L70 125L120 90L170 115L220 85L270 110L320 95V180H0V130Z" fill="currentColor">
+</path>
+<path d="M0 145L40 135L90 148L150 128L210 142L280 120L320 130V180H0V145Z" fill="#eff4ff">
+</path>
+</svg>
+<!-- Central Interactive Route Telemetry Preview Card -->
+<div class="relative z-10 w-full max-w-[290px] bg-surface-container-lowest p-space-sm rounded-lg shadow-md transition-all duration-300 hover:shadow-lg">
+<!-- Floating Instant Badge -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-sm leading-none" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-sm text-label-sm font-semibold">Instant Guarantee</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1 animate-pulse">
+</span>
+ Live Route
+ </span>
+</div>
+<!-- Route Nodes -->
+<div class="flex items-start space-x-space-xs my-1">
+<div class="flex flex-col items-center pt-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim ring-2 ring-secondary">
+</span>
+<span class="w-0.5 h-6 bg-outline-variant my-0.5 border-dashed">
+</span>
+<span class="w-2.5 h-2.5 rounded-sm bg-primary">
+</span>
+</div>
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center justify-between">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">Oslo S</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Departing now</span>
+</div>
+<div class="h-3">
+</div>
+<div class="flex items-center justify-between">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">Aker Brygge</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">6 min ride</span>
+</div>
+</div>
+</div>
+<!-- Fare Pill -->
+<div class="mt-2 pt-2 bg-surface-container-low rounded-lg p-2 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Fixed Price</span>
+<span class="font-currency-display text-currency-display text-primary tracking-tight">189 NOK</span>
+</div>
+<div class="flex items-center space-x-1 bg-surface-container-lowest px-2 py-1 rounded shadow-sm">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">electric_car</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Eco EV</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Delight Visual Cue Banner -->
+<div class="mt-space-sm bg-surface-container-lowest/80 backdrop-blur-sm rounded-lg p-space-sm flex items-center space-x-space-sm shadow-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-base">lock</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">No Surge Surprises</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Locked fares remain unaffected by traffic.</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg shrink-0">check_circle</span>
+</div>
+</div>
+<!-- Editorial Typography Section -->
+<div class="mt-space-md text-center px-space-xs">
+<div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-surface-container mb-space-sm">
+<span class="material-symbols-outlined text-sm text-secondary">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold uppercase tracking-wider">Nordic Precision</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold tracking-tight">
+ Book in seconds
+ </h1>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant max-w-[320px] mx-auto leading-relaxed">
+ Lock in transparent, upfront prices in NOK before you confirm every ride.
+ </p>
+</div>
+<!-- Page Dot Indicators (Slide 1 of 3) -->
+<div aria-label="Slide 1 of 3" class="flex items-center justify-center space-x-2 my-space-lg">
+<!-- Active Pill: Electric Teal #14B8A6 represented by secondary token theme -->
+<span class="w-7 h-2 rounded-full bg-secondary transition-all duration-300">
+</span>
+<!-- Inactive Dots -->
+<span class="w-2 h-2 rounded-full bg-outline-variant transition-all duration-300">
+</span>
+<span class="w-2 h-2 rounded-full bg-outline-variant transition-all duration-300">
+</span>
+</div>
+<!-- Primary Action Container -->
+<div class="w-full pt-space-xs">
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-title-sm text-title-sm flex items-center justify-center space-x-2 shadow-md hover:bg-primary-container active:scale-[0.98] transition-all duration-150" id="next-btn" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</div>
+</div>
+<script>
+ // Simple micro-interaction for tactile feedback
+ const nextBtn = document.getElementById('next-btn');
+ const skipBtn = document.getElementById('skip-btn');
+
+ if (nextBtn) {
+ nextBtn.addEventListener('click', () => {
+ nextBtn.classList.add('opacity-90');
+ setTimeout(() => {
+ nextBtn.classList.remove('opacity-90');
+ }, 150);
+ });
+ }
+
+ if (skipBtn) {
+ skipBtn.addEventListener('click', () => {
+ skipBtn.classList.add('opacity-60');
+ setTimeout(() => {
+ skipBtn.classList.remove('opacity-60');
+ }, 150);
+ });
+ }
+</script>
+</main>
+</body>
+</html>

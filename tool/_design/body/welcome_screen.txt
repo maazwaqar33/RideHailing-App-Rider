@@ -1,0 +1,119 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<main class="flex flex-col relative w-full pt-safe pb-safe bg-surface min-h-screen">
+<div class="flex flex-col w-full relative px-margin-mobile pb-space-lg select-none">
+<!-- Top Utility Bar: Language Switcher & Climate Badge -->
+<div class="flex items-center justify-between w-full pt-space-sm mb-space-md">
+<div class="inline-flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">100% Elektrisk</span>
+</div>
+<!-- Interactive Language Toggle Pill -->
+<div aria-label="Language Selector" class="inline-flex items-center bg-surface-container-high p-1 rounded-full shadow-sm cursor-pointer relative" id="langToggle" role="group">
+<button class="px-3 py-1 rounded-full font-label-md text-label-md transition-all duration-200 bg-primary-container text-on-primary shadow-sm" id="btnEn" type="button">
+ EN
+ </button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface" id="btnNo" type="button">
+ NO
+ </button>
+</div>
+</div>
+<!-- Ambient Hero Backdrop Card (Oslo Electric Vibe) -->
+<div class="relative w-full rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm mb-space-lg p-space-md flex flex-col items-center text-center">
+<!-- Visual Nordic Skyline / Northern Horizon Subtle Ambient Graphic -->
+<div class="w-full h-44 rounded-lg overflow-hidden relative mb-space-md bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Minimalist architectural view of modern Oslo Barcode district at crisp dusk, quiet reflective fjord waters, sleek electric vehicles cruising with soft glowing blue tail lights, tranquil Scandinavian blue atmosphere, clean soft ambient street lighting, cinematic composition." src="IMG[7b6090b405.jpg]"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex items-end p-space-md">
+<div class="flex items-center gap-space-xs text-on-primary">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-label-md text-label-md tracking-wide">Oslo • Viken • Gardermoen</span>
+</div>
+</div>
+</div>
+<!-- Centered Brand Identity -->
+<div class="relative -mt-12 flex flex-col items-center mb-space-sm">
+<div class="w-20 h-20 rounded-xl bg-surface-container-lowest p-2 shadow-md flex items-center justify-center">
+<img alt="Nordic Ride Logo" class="w-full h-full object-contain rounded-lg" src="IMG[e125273886.jpg]"/>
+</div>
+<div class="mt-space-sm flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight">Nordic Ride</span>
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-fixed-dim">
+</span>
+</div>
+</div>
+<!-- Headlines -->
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-space-xs">
+ Your ride in Oslo
+ </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mx-auto mb-space-sm">
+ Effortless, sustainable electric mobility across Oslo and Viken.
+ </p>
+<!-- Nordic Fleet Metrics Chips -->
+<div class="flex items-center justify-center gap-space-sm w-full pt-space-xs">
+<div class="flex items-center gap-1 bg-surface-container px-space-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-secondary text-[16px]">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface">Zero Emission</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-space-sm py-1 rounded-full">
+<span class="material-symbols-outlined text-primary text-[16px]">schedule</span>
+<span class="font-label-sm text-label-sm text-on-surface">Avg 3 min pickup</span>
+</div>
+</div>
+</div>
+<!-- Action CTAs Area -->
+<div class="flex flex-col gap-space-sm w-full mb-space-md">
+<!-- Primary CTA: Create Account -->
+<button class="w-full h-14 bg-primary-container text-on-primary rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-space-xs shadow-md active:scale-[0.98] transition-transform" type="button">
+<span>Create account</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary CTA: Log in -->
+<button class="w-full h-14 bg-surface-container-high text-primary rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-space-xs shadow-sm active:scale-[0.98] transition-transform" type="button">
+<span>Log in</span>
+</button>
+<!-- Fast Pass Nordic Id / Vipps Row -->
+<div class="flex items-center justify-center gap-space-xs pt-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span>Instant sign-in with BankID &amp; Vipps</span>
+</div>
+</div>
+<!-- Bottom Legal & Environmental Note -->
+<div class="w-full text-center px-space-sm">
+<p class="font-body-sm text-body-sm text-outline leading-relaxed mb-space-xs">
+ By continuing, you agree to Nordic Ride's <a class="underline font-label-md text-label-md text-on-surface-variant hover:text-primary" href="#">Terms of Service</a> and <a class="underline font-label-md text-label-md text-on-surface-variant hover:text-primary" href="#">Privacy Policy</a>.
+ </p>
+<div class="inline-flex items-center justify-center gap-1 text-outline font-label-sm text-label-sm">
+<span>Designed with care in Norway</span>
+<span>•</span>
+<span>Nordic Mobility AS</span>
+</div>
+</div>
+</div>
+<script>
+ (function() {
+ const langToggle = document.getElementById('langToggle');
+ const btnEn = document.getElementById('btnEn');
+ const btnNo = document.getElementById('btnNo');
+
+ if (langToggle && btnEn && btnNo) {
+ let currentLang = 'EN';
+
+ langToggle.addEventListener('click', function(e) {
+ currentLang = currentLang === 'EN' ? 'NO' : 'EN';
+ 
+ if (currentLang === 'EN') {
+ btnEn.className = 'px-3 py-1 rounded-full font-label-md text-label-md transition-all duration-200 bg-primary-container text-on-primary shadow-sm';
+ btnNo.className = 'px-3 py-1 rounded-full font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface';
+ } else {
+ btnNo.className = 'px-3 py-1 rounded-full font-label-md text-label-md transition-all duration-200 bg-primary-container text-on-primary shadow-sm';
+ btnEn.className = 'px-3 py-1 rounded-full font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface';
+ }
+ });
+ }
+ })();
+</script>
+</main>
+</body>
+</html>

@@ -1,0 +1,195 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(15,42,74,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center text-primary -ml-2" onclick="history.back()">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<img alt="Nordic Ride Logo" class="h-8 w-auto object-contain" src="IMG[040c51c58f.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-primary font-semibold truncate ml-1">Live Trip Tracking</h1>
+</div>
+<div class="min-w-[44px] min-h-[44px] flex items-center justify-end">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary-container" src="IMG[ae0f59597a.jpg]"/>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface">
+<div class="flex flex-col w-full">
+<!-- Map Canvas & Context Layer -->
+<div class="relative w-full h-72 sm:h-80 overflow-hidden bg-surface-container">
+<!-- Map Canvas with Static Maps Integration -->
+<div class="w-full h-full bg-cover bg-center" data-location="Oslo Sentralstasjon, Jernbanetorget 1, 0154 Oslo, Norway" style="background-image: url('IMG[dd3fc6a481.png]')">
+</div>
+<!-- Map Ambience Gradient Scrim -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary/30 via-transparent to-surface pointer-events-none">
+</div>
+<!-- Real-time Route Overlay & Location Pins -->
+<div class="absolute inset-0 pointer-events-none flex flex-col justify-between p-margin-mobile">
+<!-- Route Progress Pill -->
+<div class="self-start flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-lowest/95 shadow-md backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping">
+</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Oslo S → Oslo Lufthavn (OSL)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">38 min</span>
+</div>
+<!-- Recenter Map Action Pill -->
+<div class="self-end pointer-events-auto">
+<button aria-label="Recenter map on driver" class="w-11 h-11 rounded-full bg-surface-container-lowest text-primary shadow-lg flex items-center justify-center active:scale-95 transition-transform" id="recenterBtn">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sheet Container Overlapping Map Base -->
+<div class="relative -mt-6 bg-surface rounded-t-[28px] shadow-[0_-8px_32px_rgba(15,42,74,0.08)] px-margin-mobile pb-space-xl flex flex-col gap-space-lg">
+<!-- Tactile Drag Indicator Handle -->
+<div class="w-full flex justify-center pt-3 pb-1">
+<div class="w-9 h-1 rounded-full bg-outline-variant">
+</div>
+</div>
+<!-- Prominent Status Banner -->
+<div class="flex items-start justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="w-11 h-11 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">near_me</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">Driver arrived</h2>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold tracking-wider uppercase">Live</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+ Erik Larsen is waiting outside Oslo S main entrance by the taxi drop-off bay.
+ </p>
+</div>
+</div>
+</div>
+<!-- Security Verification PIN Badge -->
+<div class="bg-primary text-on-primary rounded-xl p-space-md flex items-center justify-between shadow-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 text-secondary-fixed">
+<span class="material-symbols-outlined text-base">verified_user</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Security PIN</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim mt-0.5">Share with Erik before entering car</p>
+</div>
+<div class="flex items-center gap-1.5 bg-primary-container px-3.5 py-2 rounded-lg shadow-inner">
+<span class="font-headline-lg text-headline-lg text-on-primary tracking-widest font-bold font-mono">4821</span>
+</div>
+</div>
+<!-- Driver & Vehicle Profile Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<!-- Driver Profile Snapshot -->
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm" data-alt="Warm and welcoming portrait of Erik Larsen, a Scandinavian male in his early 40s with a friendly smile, neatly groomed light brown hair, wearing a dark navy transport jacket with subtle Norwegian flag embroidery, illuminated by soft natural Nordic daylight." src="IMG[3083a25363.jpg]"/>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest rounded-full p-0.5 shadow-sm">
+<div class="bg-secondary text-on-secondary w-5 h-5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">electric_car</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-md text-title-md text-primary font-bold truncate">Erik Larsen</span>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;" title="BankID Verified Driver">check_circle</span>
+</div>
+<div class="flex items-center gap-space-xs mt-0.5 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-semibold text-primary">4.9</span>
+<span>•</span>
+<span>2,410+ rides</span>
+</div>
+</div>
+</div>
+<!-- Quick Interaction Actions -->
+<div class="flex items-center gap-space-xs shrink-0">
+<button aria-label="Message Erik Larsen" class="w-11 h-11 rounded-full bg-surface-container text-primary flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</button>
+<button aria-label="Call Erik Larsen" class="w-11 h-11 rounded-full bg-surface-container text-primary flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-xl">call</span>
+</button>
+</div>
+</div>
+<!-- Vehicle Telemetry & Registration Banner -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-xl">directions_car</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold truncate">Toyota Camry Hybrid</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Midnight Slate Blue • 4 Seats</span>
+</div>
+</div>
+<!-- Norwegian License Plate Tag -->
+<div class="bg-surface-container-lowest px-2.5 py-1 rounded shadow-sm flex items-center gap-1.5 shrink-0">
+<span class="font-label-sm text-label-sm text-primary font-bold bg-secondary-fixed/50 px-1 py-0.2 rounded">N</span>
+<span class="font-label-lg text-label-lg text-primary font-bold tracking-wider font-mono">EL 12345</span>
+</div>
+</div>
+</div>
+<!-- Trip Safeguard Controls & Navigation Actions -->
+<div class="flex flex-col gap-space-sm">
+<!-- Primary Operational Controls -->
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="h-14 rounded-lg bg-surface-container text-primary font-title-sm text-title-sm font-semibold flex items-center justify-center gap-space-xs active:scale-98 transition-transform shadow-sm" id="shareTripBtn">
+<span class="material-symbols-outlined text-xl">share</span>
+<span>Share Trip</span>
+</button>
+<button class="h-14 rounded-lg bg-error-container text-on-error-container font-title-sm text-title-sm font-bold flex items-center justify-center gap-space-xs active:scale-98 transition-transform shadow-sm" id="sosBtn">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<span>SOS Assistance</span>
+</button>
+</div>
+<!-- Understated Ride Details Drawer Opener -->
+<div class="flex items-center justify-between px-space-sm py-2">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-base">payments</span>
+<span class="font-body-sm text-body-sm">Payment via Vipps (••• 42)</span>
+</div>
+<span class="font-title-sm text-title-sm text-primary font-bold">590 kr</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+ // Micro-interaction handlers for driver live trip screen
+ document.getElementById('shareTripBtn')?.addEventListener('click', () => {
+ if (navigator.share) {
+ navigator.share({
+ title: 'Nordic Ride Tracking',
+ text: 'Tracking my ride with Erik Larsen to Gardermoen Airport. Vehicle: EL 12345.',
+ url: window.location.href,
+ }).catch(() => {});
+ } else {
+ const btn = document.getElementById('shareTripBtn');
+ const originalText = btn.innerHTML;
+ btn.innerHTML = '<span class="material-symbols-outlined text-xl">done</span>
+<span>Link Copied!</span>';
+ setTimeout(() => {
+ btn.innerHTML = originalText;
+ }, 2000);
+ }
+ });
+
+ document.getElementById('sosBtn')?.addEventListener('click', () => {
+ const confirmed = confirm('Call Norwegian Emergency Services (112) and alert Nordic Ride Safety Operations?');
+ if (confirmed) {
+ window.location.href = 'tel:112';
+ }
+ });
+
+ document.getElementById('recenterBtn')?.addEventListener('click', function() {
+ this.classList.add('rotate-180');
+ setTimeout(() => this.classList.remove('rotate-180'), 400);
+ });
+</script>
+</main>
+</body>
+</html>

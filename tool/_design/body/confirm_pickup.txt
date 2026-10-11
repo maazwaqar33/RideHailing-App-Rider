@@ -1,0 +1,202 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-space-xs" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<img alt="logo.jpg" class="h-8 w-auto object-contain hidden sm:block" src="IMG[c9218c04df.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-on-surface tracking-tight truncate max-w-[200px]">Confirm Pickup</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen">
+<div class="flex flex-col w-full relative select-none">
+<!-- Interactive Map Canvas Layer -->
+<div class="relative w-full h-[380px] overflow-hidden bg-surface-container-high">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-location="Oslo Sentralstasjon, Jernbanetorget, Oslo, Norway" style="background-image: url('IMG[7521b3cf92.png]')">
+<!-- Atmospheric Fjord Gradient Overlay for Nordic aesthetic -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-primary/25 pointer-events-none">
+</div>
+</div>
+<!-- Map Floating Controls (Top Right) -->
+<div class="absolute top-4 right-4 flex flex-col gap-2 z-10">
+<button aria-label="Toggle Live Traffic" class="w-11 h-11 rounded-full bg-surface-container-lowest/95 backdrop-blur-md text-on-surface shadow-md flex items-center justify-center transition-all active:scale-95" id="trafficBtn" type="button">
+<span class="material-symbols-outlined text-[20px] text-secondary">layers</span>
+</button>
+<button aria-label="Recenter GPS Position" class="w-11 h-11 rounded-full bg-surface-container-lowest/95 backdrop-blur-md text-on-surface shadow-md flex items-center justify-center transition-all active:scale-95" id="recenterBtn" type="button">
+<span class="material-symbols-outlined text-[22px] text-primary">my_location</span>
+</button>
+</div>
+<!-- Weather & Air Quality Nordic Pill (Top Left) -->
+<div class="absolute top-4 left-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]">eco</span>
+<span class="font-label-md text-label-md text-on-surface tracking-tight">Oslo S · Clean Air Zone</span>
+</div>
+<!-- Interactive Centered Pickup Pin & Target System -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none pb-10">
+<!-- Accuracy Radar Halo -->
+<div class="relative flex items-center justify-center">
+<!-- Pulse Rings -->
+<div class="absolute w-24 h-24 rounded-full bg-secondary-container/30 animate-ping opacity-75">
+</div>
+<div class="absolute w-14 h-14 rounded-full bg-secondary-fixed/40">
+</div>
+<div class="absolute w-4 h-4 rounded-full bg-secondary shadow-sm">
+</div>
+<!-- Floating Guidance Tooltip Pill -->
+<div class="absolute -top-16 flex flex-col items-center animate-bounce duration-1000">
+<div class="px-3.5 py-1.5 rounded-full bg-primary text-on-primary shadow-xl flex items-center gap-1.5 whitespace-nowrap">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim inline-block">
+</span>
+<span class="font-label-md text-label-md">Set pickup here · Drag map to adjust</span>
+</div>
+<!-- Tiny Tooltip Arrow -->
+<div class="w-2 h-2 bg-primary rotate-45 -mt-1">
+</div>
+</div>
+<!-- Custom Tactile Fjord Pin Icon -->
+<div class="relative -top-6 transform transition-transform duration-200" id="tactilePin">
+<div class="w-11 h-11 rounded-full bg-primary flex items-center justify-center shadow-xl ring-2 ring-secondary-fixed">
+<span class="material-symbols-outlined text-on-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">local_taxi</span>
+</div>
+<div class="w-1.5 h-3 bg-primary mx-auto -mt-0.5 rounded-b-full">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Nordic Mobility Bottom Sheet Drawer -->
+<div class="relative w-full bg-surface-container-lowest rounded-t-[24px] shadow-2xl -mt-6 z-20 px-margin-mobile pt-3 pb-8 flex flex-col">
+<!-- Drag Handle Bar -->
+<div class="w-9 h-1 rounded-full bg-outline-variant/60 mx-auto mb-4">
+</div>
+<!-- Station & Terminal Badge -->
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">train</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Central Hub</span>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span class="font-label-md text-label-md font-semibold">Fast EV Pickup</span>
+</div>
+</div>
+<!-- Pickup Location Detail Card -->
+<div class="bg-surface-container-low rounded-xl p-3.5 mb-3">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-title-sm text-title-sm text-on-surface truncate">Oslo S (Jernbanetorget)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">At the taxi stand by the sea side entrance (Sjøsiden)</p>
+</div>
+</div>
+</div>
+<!-- Driver Instruction Quick Action -->
+<div class="mb-4">
+<button class="w-full flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest hover:bg-surface-container transition-colors group" id="noteToggleBtn" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-[20px]">edit_note</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant group-hover:text-on-surface font-medium" id="noteButtonText">Add pickup note for driver</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] transition-transform duration-200" id="noteCaret">chevron_right</span>
+</button>
+<!-- Expandable Driver Note Drawer -->
+<div class="hidden mt-2 p-3 bg-surface-container-low rounded-xl transition-all" id="noteInputContainer">
+<label class="font-label-sm text-label-sm uppercase text-outline block mb-1.5" for="driverNoteInput">Note details</label>
+<div class="flex items-center gap-2">
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm px-3 py-2 rounded-lg outline-none placeholder:text-outline" id="driverNoteInput" placeholder="e.g. Waiting beside the sculpture..." type="text"/>
+<button class="px-3 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap active:scale-95 transition-transform" id="saveNoteBtn" type="button">Save</button>
+</div>
+</div>
+</div>
+<!-- Primary Nordic Action CTA -->
+<button class="w-full h-14 rounded-lg bg-primary-container text-on-primary flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] transition-all" id="confirmPickupBtn" type="button">
+<span class="font-title-sm text-title-sm">Confirm pickup</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<script>
+ (() => {
+ const noteBtn = document.getElementById('noteToggleBtn');
+ const noteInputContainer = document.getElementById('noteInputContainer');
+ const noteCaret = document.getElementById('noteCaret');
+ const saveNoteBtn = document.getElementById('saveNoteBtn');
+ const noteInput = document.getElementById('driverNoteInput');
+ const noteButtonText = document.getElementById('noteButtonText');
+ const recenterBtn = document.getElementById('recenterBtn');
+ const trafficBtn = document.getElementById('trafficBtn');
+ const tactilePin = document.getElementById('tactilePin');
+ const confirmBtn = document.getElementById('confirmPickupBtn');
+
+ if (noteBtn && noteInputContainer) {
+ noteBtn.addEventListener('click', () => {
+ const isHidden = noteInputContainer.classList.contains('hidden');
+ if (isHidden) {
+ noteInputContainer.classList.remove('hidden');
+ noteCaret.classList.add('rotate-90');
+ noteInput.focus();
+ } else {
+ noteInputContainer.classList.add('hidden');
+ noteCaret.classList.remove('rotate-90');
+ }
+ });
+ }
+
+ if (saveNoteBtn && noteInput && noteButtonText) {
+ saveNoteBtn.addEventListener('click', () => {
+ const value = noteInput.value.trim();
+ if (value.length > 0) {
+ noteButtonText.textContent = `Note: "${value}"`;
+ noteButtonText.classList.add('text-primary', 'font-semibold');
+ } else {
+ noteButtonText.textContent = 'Add pickup note for driver';
+ noteButtonText.classList.remove('text-primary', 'font-semibold');
+ }
+ noteInputContainer.classList.add('hidden');
+ noteCaret.classList.remove('rotate-90');
+ });
+ }
+
+ if (recenterBtn && tactilePin) {
+ recenterBtn.addEventListener('click', () => {
+ tactilePin.classList.add('-translate-y-3');
+ setTimeout(() => {
+ tactilePin.classList.remove('-translate-y-3');
+ }, 250);
+ });
+ }
+
+ if (trafficBtn) {
+ trafficBtn.addEventListener('click', () => {
+ trafficBtn.classList.toggle('bg-secondary-container');
+ });
+ }
+
+ if (confirmBtn) {
+ confirmBtn.addEventListener('click', () => {
+ confirmBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>
+<span class="font-title-sm text-title-sm">Connecting driver...</span>';
+ setTimeout(() => {
+ confirmBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span class="font-title-sm text-title-sm">Driver Assigned!</span>';
+ confirmBtn.classList.add('bg-secondary');
+ }, 1200);
+ });
+ }
+ })();
+</script>
+</main>
+</body>
+</html>

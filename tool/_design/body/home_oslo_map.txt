@@ -1,0 +1,257 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(15,42,74,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<img alt="Nordic Ride Logo" class="h-8 w-auto object-contain" src="IMG[040c51c58f.jpg]"/>
+<span class="font-title-sm text-title-sm text-primary tracking-tight font-semibold">Nordic Ride</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Ride Booking</span>
+<a class="min-w-[44px] min-h-[44px] flex items-center justify-end" data-path="profile" href="#">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary-container" src="IMG[ae0f59597a.jpg]"/>
+</a>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 pb-20 bg-surface">
+<div class="flex flex-col w-full relative select-none">
+<!-- Map Canvas Section -->
+<div class="relative w-full h-[477px] overflow-hidden bg-surface-container-high">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-location="Oslo Sentralstasjon, Karl Johans gate, Operaen, Oslo Fjord, Norway" style="background-image: url('IMG[9d70fb8d82.png]')">
+</div>
+<!-- Fjord Water & Map Tone Scrim -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-primary/25 pointer-events-none">
+</div>
+<!-- Floating Top Search Status Pill -->
+<div class="absolute top-4 left-margin-mobile right-margin-mobile flex items-center justify-between pointer-events-none z-10">
+<div class="pointer-events-auto flex items-center gap-space-xs bg-surface-container-lowest/90 backdrop-blur-md px-3.5 py-2 rounded-full shadow-md">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse">
+</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Oslo Sentrum</span>
+<span class="text-outline-variant font-label-sm text-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">100% Electric Fleet</span>
+</div>
+<div class="pointer-events-auto flex items-center gap-1.5 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-2 rounded-full shadow-md text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-base text-secondary" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-semibold text-primary">0g CO₂</span>
+</div>
+</div>
+<!-- Dynamic Interactive Vehicle Markers on Map -->
+<!-- Vehicle 1: Karl Johans gate -->
+<div class="absolute top-[28%] left-[44%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95">
+<div class="bg-primary text-on-primary px-2 py-0.5 rounded-full font-label-sm text-label-sm shadow-md flex items-center gap-1 mb-1">
+<span class="text-secondary-fixed">2m</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center text-primary border-none">
+<span class="material-symbols-outlined text-lg text-primary">electric_car</span>
+</div>
+</div>
+<!-- Vehicle 2: Oslo Sentralstasjon -->
+<div class="absolute top-[36%] right-[16%] flex flex-col items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95">
+<div class="bg-primary text-on-primary px-2 py-0.5 rounded-full font-label-sm text-label-sm shadow-md flex items-center gap-1 mb-1">
+<span class="text-secondary-fixed">3m</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg text-primary">electric_car</span>
+</div>
+</div>
+<!-- Vehicle 3: Aker Brygge Marina -->
+<div class="absolute bottom-[24%] left-[20%] flex flex-col items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95">
+<div class="bg-primary text-on-primary px-2 py-0.5 rounded-full font-label-sm text-label-sm shadow-md flex items-center gap-1 mb-1">
+<span class="text-secondary-fixed">4m</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg text-secondary">electric_car</span>
+</div>
+</div>
+<!-- Vehicle 4: Bjørvika / Operaen -->
+<div class="absolute bottom-[26%] right-[28%] flex flex-col items-center group cursor-pointer transition-transform hover:scale-105 active:scale-95">
+<div class="bg-primary text-on-primary px-2 py-0.5 rounded-full font-label-sm text-label-sm shadow-md flex items-center gap-1 mb-1">
+<span class="text-secondary-fixed">5m</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg text-primary">electric_car</span>
+</div>
+</div>
+<!-- Floating Map Controls -->
+<div class="absolute bottom-5 right-margin-mobile flex flex-col gap-2.5 z-10">
+<button aria-label="Re-center map" class="w-12 h-12 rounded-full bg-surface-container-lowest text-primary shadow-lg flex items-center justify-center transition-all hover:bg-surface-container-low active:scale-90" id="recenter-btn" type="button">
+<span class="material-symbols-outlined text-2xl text-primary transition-transform duration-300" id="recenter-icon">my_location</span>
+</button>
+<button aria-label="Toggle eco routes layer" class="w-12 h-12 rounded-full bg-surface-container-lowest text-secondary shadow-lg flex items-center justify-center transition-all hover:bg-surface-container-low active:scale-90" type="button">
+<span class="material-symbols-outlined text-2xl">layers</span>
+</button>
+</div>
+</div>
+<!-- Scandinavian Bottom Sheet -->
+<div class="relative w-full -mt-5 bg-surface-container-lowest rounded-t-[28px] shadow-[0_-8px_30px_rgba(15,42,74,0.08)] px-margin-mobile pt-3 pb-8 z-20 flex flex-col gap-space-md">
+<!-- Grab Bar -->
+<div class="w-10 h-1 bg-outline-variant/60 rounded-full mx-auto mb-1">
+</div>
+<!-- Greeting & Quick Status Row -->
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium block">Mandag, 08:30</span>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight font-semibold">Good morning, Sara</h2>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low">
+<span class="material-symbols-outlined text-sm text-secondary">cloud</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">12°C Oslo</span>
+</div>
+</div>
+<!-- Search / Destination Input Hero Bar -->
+<div class="w-full h-14 bg-surface-container-low rounded-xl px-4 flex items-center justify-between shadow-sm transition-all hover:bg-surface-container hover:shadow-md cursor-pointer active:scale-[0.99]" id="search-trigger" role="button" tabindex="0">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<span class="font-title-sm text-title-sm text-primary font-medium truncate">Where to?</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<div class="h-5 w-px bg-outline-variant/50">
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest text-primary shadow-xs">
+<span class="material-symbols-outlined text-base text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-sm text-label-sm font-semibold">Now</span>
+</div>
+</div>
+</div>
+<!-- Saved Places Shortcuts -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Saved Places</span>
+<button class="font-label-sm text-label-sm text-secondary font-semibold hover:underline" type="button">Edit</button>
+</div>
+<div class="grid grid-cols-2 gap-gutter-mobile">
+<!-- Home Shortcut -->
+<div class="flex items-center gap-3 p-3.5 bg-surface-container-low hover:bg-surface-container rounded-xl transition-all shadow-xs cursor-pointer active:scale-[0.98]" role="button" tabindex="0">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl text-primary" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold leading-tight">Home</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Frognerveien 14</span>
+</div>
+</div>
+<!-- Work Shortcut -->
+<div class="flex items-center gap-3 p-3.5 bg-surface-container-low hover:bg-surface-container rounded-xl transition-all shadow-xs cursor-pointer active:scale-[0.98]" role="button" tabindex="0">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl text-primary" style="font-variation-settings: 'FILL' 1;">apartment</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold leading-tight">Work</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Aker Brygge 4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Destinations List -->
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold uppercase tracking-wider">Recent Destinations</span>
+<div class="flex flex-col gap-1.5">
+<!-- Recent 1: Operaen -->
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group" role="button" tabindex="0">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-low group-hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-lg">schedule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-medium truncate">Den Norske Opera & Ballett</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Kirsten Flagstads plass 1, Bjørvika</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-xl shrink-0 ml-2">north_east</span>
+</div>
+<!-- Recent 2: Munch Museet -->
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group" role="button" tabindex="0">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-low group-hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-lg">schedule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-medium truncate">MUNCH Museum</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Edvard Munchs plass 1, 0194 Oslo</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-xl shrink-0 ml-2">north_east</span>
+</div>
+<!-- Recent 3: Nationaltheatret -->
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group" role="button" tabindex="0">
+<div class="flex items-center gap-3.5 min-w-0">
+<div class="w-9 h-9 rounded-full bg-surface-container-low group-hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-lg">schedule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-medium truncate">Nationaltheatret Stasjon</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Johanne Dybwads plass 1</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-xl shrink-0 ml-2">north_east</span>
+</div>
+</div>
+</div>
+<!-- Nordic Mobility Vipps & Sustainability Banner -->
+<div class="mt-1 p-4 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-tertiary-container shadow-xs">
+<span class="material-symbols-outlined text-xl text-on-tertiary-container">contactless</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary font-semibold block">Vipps Quick-Pay Ready</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+47 982 •• •21</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-xl">verified</span>
+</div>
+</div>
+</div>
+<script>
+ (function() {
+ const recenterBtn = document.getElementById('recenter-btn');
+ const recenterIcon = document.getElementById('recenter-icon');
+ if (recenterBtn && recenterIcon) {
+ recenterBtn.addEventListener('click', function() {
+ recenterIcon.classList.add('rotate-180', 'text-secondary');
+ setTimeout(() => {
+ recenterIcon.classList.remove('rotate-180', 'text-secondary');
+ }, 400);
+ });
+ }
+
+ const searchTrigger = document.getElementById('search-trigger');
+ if (searchTrigger) {
+ searchTrigger.addEventListener('click', function() {
+ const rideTab = document.querySelector('nav a[data-path="ride-booking"]');
+ if (rideTab) {
+ rideTab.click();
+ }
+ });
+ }
+ })();
+</script>
+</main>
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,42,74,0.06)]" data-active-classes="text-secondary font-semibold">
+<div class="flex justify-around items-center h-16 px-space-xs">
+<a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] transition-colors text-secondary font-semibold" data-path="ride-booking" href="#">
+<span class="material-symbols-outlined text-2xl">local_taxi</span>
+<span class="font-label-sm text-label-sm">Ride</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="activity-trips" href="#">
+<span class="material-symbols-outlined text-2xl">route</span>
+<span class="font-label-sm text-label-sm">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="wallet" href="#">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+</body>
+</html>

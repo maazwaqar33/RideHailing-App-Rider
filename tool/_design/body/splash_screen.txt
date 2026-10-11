@@ -1,0 +1,59 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<main class="flex flex-col relative w-full pt-safe pb-safe bg-surface min-h-screen">
+<div class="flex flex-col w-full relative overflow-hidden py-16 px-6 items-center justify-between min-h-[82vh]">
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-40">
+<div class="w-72 h-72 rounded-full bg-secondary blur-3xl">
+</div>
+</div>
+<div class="w-full flex justify-center pt-8">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high/60 backdrop-blur-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse">
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Oslo • Zero Emission</span>
+</div>
+</div>
+<div class="relative z-10 flex flex-col items-center justify-center text-center my-auto">
+<div class="relative mb-8 group">
+<div class="absolute -inset-3 bg-secondary/20 rounded-3xl blur-xl transition-all duration-700">
+</div>
+<div class="relative w-24 h-24 rounded-2xl overflow-hidden shadow-2xl bg-primary-container flex items-center justify-center">
+<img alt="nordic ride emblem" class="w-full h-full object-cover rounded-2xl" src="IMG[e125273886.jpg]"/>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight lowercase select-none">
+ nordic ride
+ </h1>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant tracking-normal">
+ Quiet mobility across Oslo
+ </p>
+</div>
+<div class="relative z-10 w-full flex flex-col items-center pb-4">
+<div class="w-[140px] h-[3px] bg-surface-container-highest rounded-full overflow-hidden relative shadow-sm">
+<div class="h-full bg-secondary rounded-full transition-all duration-300 ease-out shadow-[0_0_8px_rgba(0,107,95,0.6)]" id="splash-loader" style="width: 25%;">
+</div>
+</div>
+</div>
+</div>
+<script>
+ (function() {
+ const bar = document.getElementById('splash-loader');
+ if (!bar) return;
+ let progress = 25;
+ const interval = setInterval(() => {
+ progress += Math.floor(Math.random() * 14) + 6;
+ if (progress >= 100) {
+ progress = 100;
+ bar.style.width = '100%';
+ clearInterval(interval);
+ } else {
+ bar.style.width = progress + '%';
+ }
+ }, 180);
+ })();
+</script>
+</main>
+</body>
+</html>

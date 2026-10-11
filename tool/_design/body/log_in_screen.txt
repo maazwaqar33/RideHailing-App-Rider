@@ -1,0 +1,231 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<main class="flex flex-col relative w-full pt-safe pb-safe bg-surface min-h-screen">
+<div class="flex flex-col w-full px-margin-mobile pb-space-xl">
+<!-- Subtle Top Atmospheric Glow -->
+<div class="relative w-full overflow-hidden rounded-xl bg-surface-container-low p-space-lg mb-space-lg shadow-sm">
+<div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-secondary-fixed/20 blur-2xl pointer-events-none">
+</div>
+<div class="absolute -left-6 -bottom-6 w-28 h-28 rounded-full bg-surface-variant/40 blur-xl pointer-events-none">
+</div>
+<div class="relative z-10 flex items-center justify-between">
+<div class="flex items-center space-x-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-secondary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[24px]">electric_bolt</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block">Nordic Ride</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse">
+</span>
+ Oslo • 100% Zero Emission
+ </span>
+</div>
+</div>
+<div class="flex items-center space-x-1 px-space-sm py-1 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">BankID Ready</span>
+</div>
+</div>
+<!-- Header Greeting -->
+<div class="relative z-10 mt-space-lg">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface tracking-tight">Welcome back</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Sign in to book silent, sustainable fjord-class transit.</p>
+</div>
+</div>
+<!-- Quick Biometric Returning Profile Pill -->
+<div class="mb-space-md p-space-sm pl-space-md rounded-xl bg-surface-container flex items-center justify-between shadow-sm transition-all duration-200" id="quick-biometric-banner">
+<div class="flex items-center space-x-space-sm min-w-0">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary-container font-title-sm text-title-sm font-bold">
+ EK
+ </div>
+<div class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-on-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div>
+<div class="min-w-0 truncate">
+<div class="font-title-sm text-title-sm text-on-surface truncate">Erlend K.</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant truncate">Last ride from Aker Brygge</div>
+</div>
+</div>
+<button aria-label="Quick unlock with Face ID" class="h-10 px-space-md bg-surface-container-lowest text-on-surface rounded-lg flex items-center space-x-1.5 shadow-sm active:scale-95 transition-transform" id="bio-quick-btn" type="button">
+<span class="material-symbols-outlined text-secondary text-[20px]">face</span>
+<span class="font-label-md text-label-md">Unlock</span>
+</button>
+</div>
+<!-- Login Form -->
+<form class="space-y-space-md" id="login-form" onsubmit="event.preventDefault(); triggerAuthFeedback();">
+<!-- Email Field -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="email">Email address</label>
+<div class="relative flex items-center h-14 bg-surface-container-lowest rounded-xl shadow-sm focus-within:shadow-md transition-shadow">
+<span class="material-symbols-outlined absolute left-space-md text-outline text-[22px] pointer-events-none">mail</span>
+<input autocomplete="email" class="w-full h-full pl-12 pr-space-md bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" id="email" placeholder="navn@domene.no" required="" type="email" value="erlend.kvist@nordic.oslo"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<div class="relative flex items-center h-14 bg-surface-container-lowest rounded-xl shadow-sm focus-within:shadow-md transition-shadow">
+<span class="material-symbols-outlined absolute left-space-md text-outline text-[22px] pointer-events-none">lock</span>
+<input autocomplete="current-password" class="w-full h-full pl-12 pr-12 bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" id="password" placeholder="••••••••" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-space-md text-outline hover:text-on-surface focus:outline-none p-1 flex items-center justify-center transition-colors" id="toggle-password" type="button">
+<span class="material-symbols-outlined text-[22px]" id="eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Forgot Password Link -->
+<div class="flex justify-end pt-0.5">
+<a class="font-label-lg text-label-lg text-primary-container font-semibold hover:text-secondary transition-colors py-1" href="#forgot">
+ Forgot password?
+ </a>
+</div>
+<!-- Action Group: Primary Button + Biometric Icon Tile -->
+<div class="pt-space-xs flex items-center space-x-space-sm">
+<button class="h-14 flex-1 bg-primary-container text-on-primary rounded-xl font-title-sm text-title-sm flex items-center justify-center space-x-2 shadow-md active:scale-[0.98] transition-all" id="login-submit-btn" type="submit">
+<span id="btn-text">Log in</span>
+<span class="material-symbols-outlined text-[20px]" id="btn-icon">arrow_forward</span>
+</button>
+<!-- Biometric Instant Button -->
+<button aria-label="Log in with Biometrics" class="h-14 w-14 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary-container shadow-md active:scale-95 transition-transform group" id="biometric-icon-btn" title="Biometric Recognition" type="button">
+<span class="material-symbols-outlined text-[26px] group-hover:text-secondary transition-colors">fingerprint</span>
+</button>
+</div>
+</form>
+<!-- Divider -->
+<div class="relative my-space-lg flex items-center justify-center">
+<div class="w-full h-[1px] bg-surface-container-high">
+</div>
+<span class="absolute bg-surface px-space-md font-label-md text-label-md text-outline uppercase tracking-wider">or</span>
+</div>
+<!-- Social & Local Login Options -->
+<div class="space-y-space-sm">
+<!-- Dedicated Vipps Norway Option -->
+<button class="w-full h-14 bg-[#FF5B24] text-on-primary rounded-xl px-space-md flex items-center justify-between shadow-sm active:scale-[0.99] transition-transform" type="button">
+<div class="flex items-center space-x-space-md">
+<!-- Vipps Custom Nordic Pill Style -->
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest/20 flex items-center justify-center font-title-sm text-title-sm font-black tracking-tighter">
+ v:
+ </div>
+<div class="flex flex-col text-left">
+<span class="font-title-sm text-title-sm leading-tight font-bold">Fast login with Vipps</span>
+<span class="font-label-sm text-label-sm opacity-90">+47 ••• •• •••</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[22px]">chevron_right</span>
+</button>
+<!-- Google Login -->
+<button class="w-full h-14 bg-surface-container-lowest text-on-surface rounded-xl px-space-md flex items-center justify-between shadow-sm active:scale-[0.99] transition-transform" type="button">
+<div class="flex items-center space-x-space-md">
+<svg aria-hidden="true" class="w-6 h-6 shrink-0" viewbox="0 0 24 24">
+<path d="..." fill="#4285F4">
+</path>
+<path d="..." fill="#34A853">
+</path>
+<path d="..." fill="#FBBC05">
+</path>
+<path d="..." fill="#EA4335">
+</path>
+</svg>
+<span class="font-title-sm text-title-sm">Continue with Google</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">arrow_forward</span>
+</button>
+<!-- Apple Login -->
+<button class="w-full h-14 bg-surface-container-lowest text-on-surface rounded-xl px-space-md flex items-center justify-between shadow-sm active:scale-[0.99] transition-transform" type="button">
+<div class="flex items-center space-x-space-md">
+<svg aria-hidden="true" class="w-6 h-6 shrink-0 fill-current text-on-surface" viewbox="0 0 170 170">
+<path d="...">
+</path>
+</svg>
+<span class="font-title-sm text-title-sm">Continue with Apple</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">arrow_forward</span>
+</button>
+</div>
+<!-- Bottom Account Link -->
+<div class="mt-space-xl pt-space-sm text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+ New to Nordic Ride?
+ <a class="font-title-sm text-title-sm text-primary-container font-semibold ml-1 inline-flex items-center hover:underline" href="#register">
+ Create account
+ <span class="material-symbols-outlined text-[16px] ml-0.5">open_in_new</span>
+</a>
+</p>
+</div>
+</div>
+<script>
+ // Password Visibility Toggle
+ const toggleBtn = document.getElementById('toggle-password');
+ const passwordInput = document.getElementById('password');
+ const eyeIcon = document.getElementById('eye-icon');
+
+ if (toggleBtn && passwordInput && eyeIcon) {
+ toggleBtn.addEventListener('click', () => {
+ const isPassword = passwordInput.getAttribute('type') === 'password';
+ passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+ eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+ });
+ }
+
+ // Interactive Biometric Delight Trigger
+ const triggerBiometricDelight = (button) => {
+ const originalText = button.innerHTML;
+ button.disabled = true;
+ button.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>';
+ 
+ setTimeout(() => {
+ button.innerHTML = '<span class="material-symbols-outlined text-secondary text-[22px]">verified</span>';
+ setTimeout(() => {
+ button.innerHTML = originalText;
+ button.disabled = false;
+ }, 1400);
+ }, 700);
+ };
+
+ const bioQuickBtn = document.getElementById('bio-quick-btn');
+ if (bioQuickBtn) {
+ bioQuickBtn.addEventListener('click', () => triggerBiometricDelight(bioQuickBtn));
+ }
+
+ const bioIconBtn = document.getElementById('biometric-icon-btn');
+ if (bioIconBtn) {
+ bioIconBtn.addEventListener('click', () => triggerBiometricDelight(bioIconBtn));
+ }
+
+ // Form Submission Feedback
+ function triggerAuthFeedback() {
+ const btn = document.getElementById('login-submit-btn');
+ const textSpan = document.getElementById('btn-text');
+ const iconSpan = document.getElementById('btn-icon');
+ 
+ if (!btn || !textSpan || !iconSpan) return;
+
+ btn.disabled = true;
+ textSpan.textContent = 'Verifying...';
+ iconSpan.textContent = 'progress_activity';
+ iconSpan.classList.add('animate-spin');
+
+ setTimeout(() => {
+ textSpan.textContent = 'Welcome back!';
+ iconSpan.classList.remove('animate-spin');
+ iconSpan.textContent = 'check';
+ btn.classList.remove('bg-primary-container');
+ btn.classList.add('bg-secondary');
+ 
+ setTimeout(() => {
+ btn.disabled = false;
+ textSpan.textContent = 'Log in';
+ iconSpan.textContent = 'arrow_forward';
+ btn.classList.remove('bg-secondary');
+ btn.classList.add('bg-primary-container');
+ }, 1500);
+ }, 900);
+ }
+</script>
+</main>
+</body>
+</html>

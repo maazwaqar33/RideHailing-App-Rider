@@ -1,0 +1,230 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-space-xs" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<img alt="logo.jpg" class="h-8 w-auto object-contain hidden sm:block" src="IMG[c9218c04df.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-on-surface tracking-tight truncate max-w-[200px]">Confirm And Pay</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen">
+<div class="flex flex-col w-full pb-safe">
+<div class="px-margin-mobile pt-space-md flex flex-col gap-space-md">
+<!-- Interactive Map Route Preview Tile -->
+<div class="relative w-full h-36 rounded-xl overflow-hidden shadow-sm bg-surface-container">
+<div class="w-full h-full bg-cover bg-center" data-location="Oslo Sentralstasjon to Oslo Lufthavn Gardermoen" style="background-image: url('IMG[44037d8e3e.png]')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex items-end p-space-md">
+<div class="flex items-center justify-between w-full text-on-primary">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]">electric_bolt</span>
+<span class="font-label-md text-label-md tracking-wider uppercase text-secondary-fixed">Nordic Express · EV Corridor</span>
+</div>
+<span class="font-label-sm text-label-sm bg-primary/60 px-space-xs py-0.5 rounded text-surface">47 km · 38 min</span>
+</div>
+</div>
+</div>
+<!-- Trip Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1.5 flex-1 pr-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shrink-0">
+</span>
+<span class="font-title-sm text-title-sm text-on-surface truncate">Oslo S (Jernbanetorget)</span>
+</div>
+<div class="ml-[5px] w-0.5 h-4 bg-surface-container-highest">
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary shrink-0">
+</span>
+<span class="font-title-sm text-title-sm text-on-surface truncate">Oslo Airport (OSL)</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<div class="font-currency-display text-currency-display text-on-surface">1,090 NOK</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Fixed Fare</div>
+</div>
+</div>
+<!-- Vehicle & Pickup Metadata -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">electric_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">Comfort · Polestar 2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Midnight Blue · 4 seats</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/40 px-2.5 py-1 rounded-full text-on-secondary-container">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span class="font-label-sm text-label-sm">3 min away</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-space-xs">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Includes airport toll &amp; taxes</span>
+</div>
+<span class="text-on-surface">No surge pricing</span>
+</div>
+</div>
+<!-- Eco Delight / Carbon Badge -->
+<div class="bg-secondary-container/30 rounded-xl p-space-sm flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-title-sm text-title-sm text-on-secondary-container">Zero-emission ride</span>
+<span class="font-body-sm text-body-sm text-secondary">0g CO₂ emitted · Powered by clean hydro grid</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">arrow_back_ios_new</span>
+</div>
+<!-- Payment Methods Section -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Payment Method</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Default: Vipps</span>
+</div>
+<!-- Selectable List -->
+<div class="flex flex-col gap-space-sm" id="payment-options">
+<!-- Option 1: Vipps (Selected Default) -->
+<div class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-md cursor-pointer transition-all" id="vipps-card" onclick="selectPayment('vipps')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-tertiary-container text-[26px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface">Vipps</span>
+<span class="bg-surface-container-high text-on-primary-fixed-variant px-1.5 py-0.5 rounded font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">security</span>
+ BankID Verified
+ </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+47 941 23 891 (Sara Hansen)</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 text-on-secondary shadow-sm" id="vipps-indicator">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Option 2: Credit / Debit Card -->
+<div class="relative bg-surface-container-low rounded-xl p-space-md shadow-sm cursor-pointer transition-all" id="card-card" onclick="selectPayment('card')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">credit_card</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface">Visa · Nordea</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Debit</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">•••• 4291 · Exp 08/27</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 text-transparent" id="card-indicator">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+</div>
+<!-- Option 3: Cash to Driver -->
+<div class="relative bg-surface-container-low rounded-xl p-space-md shadow-sm cursor-pointer transition-all" id="cash-card" onclick="selectPayment('cash')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">Cash to Driver</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pay 1,090 NOK cash at trip completion</span>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 text-transparent" id="cash-indicator">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Payment Method Link -->
+<button class="flex items-center justify-center gap-space-xs py-space-sm text-secondary hover:text-on-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span class="font-title-sm text-title-sm">+ Add payment method</span>
+</button>
+</div>
+<!-- Security & Guarantee Micro-Banner -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center gap-space-md">
+<img class="w-12 h-12 rounded-lg object-cover shrink-0" data-alt="Close up photography of clean Scandinavian interior of electric luxury taxi dashboard featuring digital route navigation and subtle blue ambient lighting in Oslo, minimalist aesthetic." src="IMG[b83c54e5e3.jpg]"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">BankID Guarantee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Encrypted Oslo dispatch, certified driver vetted under Norwegian taxi regulation.</span>
+</div>
+</div>
+<!-- Sticky Bottom CTA Area -->
+<div class="pt-space-xs pb-space-lg flex flex-col gap-space-xs">
+<button class="w-full h-14 bg-primary text-on-primary rounded-lg font-title-sm text-title-sm flex items-center justify-between px-space-lg shadow-lg active:scale-[0.98] transition-transform" id="book-btn" type="button">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+<span id="cta-label">Book Ride with Vipps</span>
+</div>
+<span class="font-currency-display text-currency-display">1,090 NOK</span>
+</button>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant">
+ Tapping confirm reserves your vehicle immediately. Free cancellation within 2 minutes.
+ </p>
+</div>
+</div>
+</div>
+<script>
+ function selectPayment(type) {
+ const cards = {
+ vipps: document.getElementById('vipps-card'),
+ card: document.getElementById('card-card'),
+ cash: document.getElementById('cash-card')
+ };
+ const indicators = {
+ vipps: document.getElementById('vipps-indicator'),
+ card: document.getElementById('card-indicator'),
+ cash: document.getElementById('cash-indicator')
+ };
+ const ctaLabel = document.getElementById('cta-label');
+
+ // Reset all
+ Object.keys(cards).forEach(key => {
+ cards[key].classList.remove('bg-surface-container-lowest', 'shadow-md');
+ cards[key].classList.add('bg-surface-container-low', 'shadow-sm');
+ indicators[key].className = 'w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 text-transparent';
+ });
+
+ // Activate selected
+ cards[type].classList.remove('bg-surface-container-low', 'shadow-sm');
+ cards[type].classList.add('bg-surface-container-lowest', 'shadow-md');
+ indicators[type].className = 'w-6 h-6 rounded-full bg-secondary flex items-center justify-center shrink-0 text-on-secondary shadow-sm';
+
+ if (type === 'vipps') {
+ ctaLabel.textContent = 'Book Ride with Vipps';
+ } else if (type === 'card') {
+ ctaLabel.textContent = 'Book Ride with Card';
+ } else if (type === 'cash') {
+ ctaLabel.textContent = 'Confirm Cash Booking';
+ }
+ }
+</script>
+</main>
+</body>
+</html>

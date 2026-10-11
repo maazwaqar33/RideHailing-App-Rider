@@ -1,0 +1,237 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen pt-safe pb-safe">
+<main class="flex flex-col relative w-full bg-surface">
+<div class="flex flex-col w-full px-margin-mobile pb-space-xl">
+<!-- Subtle Top Context & Language Switcher -->
+<div class="flex items-center justify-between py-space-sm mb-space-xs">
+<div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-surface-container-low shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse">
+</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Oslo Sentrum</span>
+</div>
+<!-- Language Toggle Button -->
+<button class="flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors" id="langToggle" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">translate</span>
+<span class="font-label-md text-label-md text-primary font-semibold" id="langLabel">NO (Norsk)</span>
+</button>
+</div>
+<!-- Nordic Mobility Brand Hero Card -->
+<div class="relative overflow-hidden rounded-xl bg-primary-container text-on-primary p-space-lg mb-space-md shadow-md">
+<!-- Ambient Aurora Glow Accent -->
+<div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-secondary-fixed-dim/20 blur-2xl pointer-events-none">
+</div>
+<div class="absolute -left-12 -bottom-12 w-40 h-40 rounded-full bg-primary/40 blur-xl pointer-events-none">
+</div>
+<div class="relative z-10 flex flex-col items-start">
+<!-- App Brand Mark -->
+<div class="flex items-center justify-center w-14 h-14 rounded-lg bg-surface-container-lowest shadow-sm mb-space-md p-2">
+<img alt="Nordic Mobility Icon" class="w-full h-full object-contain" src="IMG[040c51c58f.jpg]"/>
+</div>
+<div class="flex items-center space-x-2 mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary-fixed font-bold">Nordic Ride</span>
+<span class="w-1 h-1 rounded-full bg-secondary-fixed">
+</span>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Zero Emission</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-primary mb-1 tracking-tight">
+ Welcome to Nordic Ride
+ </h1>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim max-w-[280px]">
+ Experience effortless, quiet mobility across Oslo and greater Viken.
+ </p>
+</div>
+</div>
+<!-- Mode Selector: Log In vs Sign Up Tabs -->
+<div class="flex p-1 rounded-xl bg-surface-container mb-space-md shadow-sm">
+<button class="flex-1 py-2.5 rounded-lg font-label-lg text-label-lg transition-all duration-200 bg-surface-container-lowest text-primary shadow-sm font-semibold" id="tabLogin" type="button">
+ Log In
+ </button>
+<button class="flex-1 py-2.5 rounded-lg font-label-lg text-label-lg transition-all duration-200 text-on-surface-variant hover:text-primary" id="tabSignup" type="button">
+ New Rider
+ </button>
+</div>
+<!-- Social Fast-Pass: Google Auth -->
+<div class="flex flex-col space-y-space-sm mb-space-md">
+<button class="w-full h-14 px-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low active:scale-[0.99] transition-all flex items-center justify-center space-x-3 shadow-sm" type="button">
+<svg class="w-5 h-5 flex-shrink-0" viewbox="0 0 24 24">
+<path d="..." fill="#4285F4">
+</path>
+<path d="..." fill="#34A853">
+</path>
+<path d="..." fill="#FBBC05">
+</path>
+<path d="..." fill="#EA4335">
+</path>
+</svg>
+<span class="font-title-sm text-title-sm text-primary">Continue with Google</span>
+</button>
+<!-- Vipps Mobile Quick Login (Norwegian Specific) -->
+<button class="w-full h-14 px-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container-low active:scale-[0.99] transition-all flex items-center justify-center space-x-3 shadow-sm" type="button">
+<div class="w-5 h-5 rounded-full bg-on-tertiary-container flex items-center justify-center text-on-tertiary font-bold text-[11px]">
+ v
+ </div>
+<span class="font-title-sm text-title-sm text-primary">Log in with Vipps</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">BankID</span>
+</button>
+</div>
+<!-- Scandinavian Minimalist Divider -->
+<div class="relative flex py-2 items-center mb-space-md">
+<div class="flex-grow bg-surface-container-high h-[1px]">
+</div>
+<span class="flex-shrink mx-4 font-label-md text-label-md text-outline">or continue with email</span>
+<div class="flex-grow bg-surface-container-high h-[1px]">
+</div>
+</div>
+<!-- Primary Credentials Form -->
+<form class="flex flex-col space-y-space-md" id="authForm" onsubmit="event.preventDefault();">
+<!-- Email Address Input -->
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-lg text-label-lg text-on-surface-variant font-medium flex items-center justify-between" for="emailInput">
+<span>Email Address</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Fast Pass</span>
+</span>
+</label>
+<div class="relative flex items-center">
+<div class="absolute left-4 flex items-center pointer-events-none">
+<span class="w-2 h-2 rounded-full bg-secondary">
+</span>
+</div>
+<input class="w-full h-14 pl-10 pr-4 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm transition-all" id="emailInput" placeholder="your.name@domain.no" type="email" value="sara.hansen@example.no"/>
+</div>
+</div>
+<!-- Password Input with Reveal Toggle -->
+<div class="flex flex-col space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface-variant font-medium flex items-center space-x-2" for="passwordInput">
+<span>Password</span>
+</label>
+<button class="font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors" type="button">
+ Forgot code?
+ </button>
+</div>
+<div class="relative flex items-center">
+<div class="absolute left-4 flex items-center pointer-events-none">
+<span class="w-2 h-2 rounded-sm bg-primary">
+</span>
+</div>
+<input class="w-full h-14 pl-10 pr-12 rounded-xl bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm transition-all" id="passwordInput" placeholder="••••••••••••" type="password" value="FjordOslo2025!"/>
+<button aria-label="Toggle password visibility" class="absolute right-3 w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-primary transition-colors focus:outline-none" id="togglePassword" type="button">
+<span class="material-symbols-outlined text-[20px]" id="eyeIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Terms Checkbox -->
+<div class="flex items-start space-x-3 pt-1">
+<label class="relative flex items-center justify-center cursor-pointer pt-0.5">
+<input checked="" class="peer sr-only" id="termsCheckbox" type="checkbox"/>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest peer-checked:bg-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity">check</span>
+</div>
+</label>
+<div class="font-body-sm text-body-sm text-on-surface-variant select-none">
+ I agree to the <a class="text-primary font-semibold underline decoration-secondary" href="#">Terms of Service</a> and <a class="text-primary font-semibold underline decoration-secondary" href="#">Privacy Policy</a>
+</div>
+</div>
+<!-- Primary Login Button with Glow & Biometric Shortcut Pair -->
+<div class="flex items-center space-x-2.5 pt-space-xs">
+<button class="flex-1 h-14 rounded-lg bg-primary-container text-on-primary font-title-sm text-title-sm flex items-center justify-center space-x-2 shadow-md hover:shadow-lg hover:shadow-secondary/20 active:scale-[0.98] transition-all" id="submitBtn" type="submit">
+<span>Log In / Sign Up</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<!-- Biometric Quick Auth Button -->
+<button class="w-14 h-14 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low text-primary flex items-center justify-center shadow-sm active:scale-[0.96] transition-all relative group" id="bioBtn" title="Biometric Sign In" type="button">
+<span class="material-symbols-outlined text-[26px] text-primary group-hover:text-secondary transition-colors">fingerprint</span>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-secondary ring-2 ring-surface">
+</span>
+</button>
+</div>
+</form>
+<!-- Climate / Transit Footnote Delight -->
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-low flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">electric_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">100% Electric Fleet</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Clean alpine energy powers every kilometer traveled.</span>
+</div>
+</div>
+<!-- Help & Support Minimal Link -->
+<div class="flex justify-center items-center mt-space-md space-x-4">
+<button class="font-label-md text-label-md text-outline hover:text-primary transition-colors" type="button">
+ Rider Support
+ </button>
+<span class="text-outline-variant">•</span>
+<button class="font-label-md text-label-md text-outline hover:text-primary transition-colors" type="button">
+ Drive with Us
+ </button>
+<span class="text-outline-variant">•</span>
+<button class="font-label-md text-label-md text-outline hover:text-primary transition-colors" type="button">
+ Oslo City Guide
+ </button>
+</div>
+</div>
+<script>
+ // Password Visibility Toggle
+ const togglePassBtn = document.getElementById('togglePassword');
+ const passwordInput = document.getElementById('passwordInput');
+ const eyeIcon = document.getElementById('eyeIcon');
+
+ if (togglePassBtn && passwordInput && eyeIcon) {
+ togglePassBtn.addEventListener('click', () => {
+ const isPassword = passwordInput.getAttribute('type') === 'password';
+ passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+ eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+ });
+ }
+
+ // Language Switcher Toggle
+ const langToggle = document.getElementById('langToggle');
+ const langLabel = document.getElementById('langLabel');
+ let isNorwegian = true;
+
+ if (langToggle && langLabel) {
+ langToggle.addEventListener('click', () => {
+ isNorwegian = !isNorwegian;
+ langLabel.textContent = isNorwegian ? 'NO (Norsk)' : 'EN (English)';
+ });
+ }
+
+ // Tabs switcher micro-interaction
+ const tabLogin = document.getElementById('tabLogin');
+ const tabSignup = document.getElementById('tabSignup');
+ const submitBtn = document.getElementById('submitBtn');
+
+ if (tabLogin && tabSignup && submitBtn) {
+ tabLogin.addEventListener('click', () => {
+ tabLogin.className = "flex-1 py-2.5 rounded-lg font-label-lg text-label-lg transition-all duration-200 bg-surface-container-lowest text-primary shadow-sm font-semibold";
+ tabSignup.className = "flex-1 py-2.5 rounded-lg font-label-lg text-label-lg transition-all duration-200 text-on-surface-variant hover:text-primary";
+ submitBtn.querySelector('span:first-child').textContent = "Log In";
+ });
+
+ tabSignup.addEventListener('click', () => {
+ tabSignup.className = "flex-1 py-2.5 rounded-lg font-label-lg text-label-lg transition-all duration-200 bg-surface-container-lowest text-primary shadow-sm font-semibold";
+ tabLogin.className = "flex-1 py-2.5 rounded-lg font-label-lg text-label-lg transition-all duration-200 text-on-surface-variant hover:text-primary";
+ submitBtn.querySelector('span:first-child').textContent = "Create Account";
+ });
+ }
+
+ // Biometrics Delight Trigger
+ const bioBtn = document.getElementById('bioBtn');
+ if (bioBtn) {
+ bioBtn.addEventListener('click', () => {
+ bioBtn.classList.add('scale-90');
+ setTimeout(() => {
+ bioBtn.classList.remove('scale-90');
+ alert('Biometric verification recognized for Oslo Rider pass.');
+ }, 180);
+ });
+ }
+</script>
+</main>
+</body>
+</html>

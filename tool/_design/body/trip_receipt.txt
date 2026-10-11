@@ -1,0 +1,215 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-space-xs" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<img alt="logo.jpg" class="h-8 w-auto object-contain hidden sm:block" src="IMG[c9218c04df.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-on-surface tracking-tight truncate max-w-[200px]">Receipt</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen">
+<div class="flex flex-col w-full pb-safe">
+<div class="px-margin-mobile py-space-md flex flex-col gap-space-lg">
+<!-- Status & Delightful Hero Stamp -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+<!-- Nordic Aurora Ambient Glow -->
+<div class="absolute -top-12 -right-12 w-36 h-36 bg-secondary-fixed opacity-30 rounded-full blur-2xl pointer-events-none">
+</div>
+<div class="absolute -bottom-10 -left-10 w-28 h-28 bg-surface-variant opacity-40 rounded-full blur-xl pointer-events-none">
+</div>
+<!-- Icon & Status Pill -->
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="inline-flex items-center gap-space-xs bg-surface-container px-space-md py-1 rounded-full mb-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary">
+</span>
+<span class="font-label-md text-label-md text-on-surface-variant tracking-wide uppercase">Payment Completed · Vipps Verified</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">1,090 NOK</div>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Charged today at 14:48</p>
+</div>
+<!-- Map & Route Visual Trace -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Mini Map Snapshot -->
+<div class="w-full h-32 bg-cover bg-center rounded-lg relative overflow-hidden" data-location="Oslo Airport, Gardermoen, Norway" style="background-image: url('IMG[74d81f374c.png]')">
+<div class="absolute inset-0 bg-primary-container/10">
+</div>
+<div class="absolute bottom-2 right-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface">100% Zero Emission</span>
+</div>
+</div>
+<!-- Route Milestones -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-start gap-space-sm">
+<div class="flex flex-col items-center mt-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim">
+</span>
+<span class="w-0.5 h-8 bg-outline-variant my-1">
+</span>
+<span class="w-2.5 h-2.5 rounded-sm bg-primary">
+</span>
+</div>
+<div class="flex-1 flex flex-col justify-between h-14">
+<div class="min-w-0">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Origin</span>
+<p class="font-title-sm text-title-sm text-on-surface truncate">Oslo S (Jernbanetorget)</p>
+</div>
+<div class="min-w-0">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Destination</span>
+<p class="font-title-sm text-title-sm text-on-surface truncate">Oslo Airport (OSL)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Driver & Vehicle Profile Strip -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between mt-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A clean, cinematic portrait photograph of Erik Larsen, a friendly professional Scandinavian chauffeur in Oslo wearing a neat minimal dark navy knit sweater, soft Nordic daylight." src="IMG[21ef141d2f.jpg]"/>
+<div class="min-w-0">
+<p class="font-title-sm text-title-sm text-on-surface truncate">Erik Larsen</p>
+<p class="font-body-sm text-body-sm text-outline truncate">Polestar 2 · EL 12345</p>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.98</span>
+</div>
+</div>
+</div>
+<!-- Fare Breakdown Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<h2 class="font-title-sm text-title-sm text-on-surface">Comprehensive Breakdown</h2>
+<span class="font-label-md text-label-md text-outline">Trip #NR-8821</span>
+</div>
+<div class="flex flex-col gap-space-xs py-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Base Fare</span>
+<span class="font-body-sm text-body-sm text-on-surface">150 NOK</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Distance (47.2 km)</span>
+<span class="font-body-sm text-body-sm text-on-surface">620 NOK</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Time (38 min)</span>
+<span class="font-body-sm text-body-sm text-on-surface">120 NOK</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Airport Toll Fee</span>
+<span class="font-body-sm text-body-sm text-on-surface">60 NOK</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">MVA / VAT (12%)</span>
+<span class="font-body-sm text-body-sm text-on-surface">140 NOK</span>
+</div>
+</div>
+<!-- Total Row -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between mt-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface">Total Paid</span>
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight">1,090 NOK</span>
+</div>
+</div>
+<!-- Payment Details Card (Norwegian Market Context) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<h2 class="font-title-sm text-title-sm text-on-surface">Payment Method</h2>
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-low rounded-lg">
+<!-- Vipps Icon Pill -->
+<div class="w-10 h-10 rounded-lg bg-on-tertiary-container flex items-center justify-center text-on-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">contactless</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface">Paid with Vipps</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate">+47 941 23 891</p>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-xs pt-space-xs">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">BankID Txn ID</span>
+<span class="font-label-md text-label-md text-on-surface bg-surface-container px-2 py-0.5 rounded font-mono">#NO-94812</span>
+</div>
+</div>
+<!-- Action & Export -->
+<div class="flex flex-col gap-space-sm">
+<button class="w-full h-14 bg-primary text-on-primary rounded-lg font-title-sm text-title-sm flex items-center justify-center gap-space-xs shadow-md active:scale-[0.98] transition-all" id="downloadReceiptBtn" type="button">
+<span class="material-symbols-outlined text-[20px]" id="downloadIcon">download</span>
+<span id="downloadText">Download PDF Receipt</span>
+</button>
+</div>
+<!-- Help & Support Nordic Bento Strip -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-1">
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="javascript:void(0)">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">report_problem</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface">Report a problem</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-on-surface transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="javascript:void(0)">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">luggage</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface">Lost item?</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-on-surface transition-colors">chevron_right</span>
+</a>
+</div>
+<!-- Environmental Footprint Delight Stamp -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant shrink-0">
+<span class="material-symbols-outlined text-[20px]">eco</span>
+</div>
+<div class="min-w-0">
+<p class="font-title-sm text-title-sm text-on-surface">7.4 kg CO₂ Saved</p>
+<p class="font-body-sm text-body-sm text-outline">Hydro-powered electric transit on E6 express highway.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+ (function() {
+ const downloadBtn = document.getElementById('downloadReceiptBtn');
+ const downloadIcon = document.getElementById('downloadIcon');
+ const downloadText = document.getElementById('downloadText');
+ 
+ if (downloadBtn) {
+ downloadBtn.addEventListener('click', function() {
+ downloadIcon.textContent = 'progress_activity';
+ downloadIcon.classList.add('animate-spin');
+ downloadText.textContent = 'Preparing PDF...';
+ 
+ setTimeout(function() {
+ downloadIcon.classList.remove('animate-spin');
+ downloadIcon.textContent = 'check';
+ downloadText.textContent = 'Receipt Downloaded';
+ 
+ setTimeout(function() {
+ downloadIcon.textContent = 'download';
+ downloadText.textContent = 'Download PDF Receipt';
+ }, 3000);
+ }, 1200);
+ });
+ }
+ })();
+</script>
+</main>
+</body>
+</html>

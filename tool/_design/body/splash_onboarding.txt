@@ -1,0 +1,285 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen pt-safe pb-safe">
+<main class="flex flex-col relative w-full bg-surface">
+<div class="flex flex-col w-full relative overflow-hidden select-none">
+<!-- Dynamic Top Ambient Aura -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none">
+</div>
+<!-- Header Brand Bar -->
+<header class="flex items-center justify-between px-margin-mobile pt-space-md pb-space-sm relative z-20">
+<div class="flex items-center space-x-2">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-center p-1.5 overflow-hidden">
+<img alt="Nordic Mobility" class="w-full h-full object-contain" src="IMG[040c51c58f.jpg]"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface tracking-tight leading-none">Nordic Ride</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary">
+</span>
+ Oslo sentrum
+ </span>
+</div>
+</div>
+<button class="font-label-lg text-label-lg text-on-surface-variant px-space-sm py-1.5 rounded-full hover:bg-surface-container transition-colors" id="skip-btn" type="button">
+ Skip
+ </button>
+</header>
+<!-- Carousel Viewport -->
+<div class="relative w-full overflow-hidden mt-space-sm">
+<div class="flex transition-transform duration-500 ease-out w-full" id="slides-track" style="transform: translateX(0%);">
+<!-- Slide 1: Fast Booking & Upfront Pricing -->
+<section class="min-w-full px-margin-mobile flex flex-col box-border">
+<div class="relative w-full rounded-2xl bg-surface-container-low p-space-lg flex flex-col justify-between overflow-hidden shadow-sm" style="min-height: 290px;">
+<!-- Card Decorative Backdrop -->
+<div class="absolute right-0 top-0 translate-x-12 -translate-y-8 w-44 h-44 rounded-full bg-surface-container-high/60 pointer-events-none">
+</div>
+<div class="relative z-10 flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-lowest shadow-sm text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+ Lynrask Bestilling
+ </span>
+<span class="font-label-md text-label-md text-on-surface-variant">01 / 03</span>
+</div>
+<!-- Oslo Route Mockup Feature Card -->
+<div class="relative z-10 my-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary">
+</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate max-w-[140px]">Aker Brygge</span>
+</div>
+<span class="font-currency-display text-currency-display text-primary">189 kr</span>
+</div>
+<div class="flex items-center pl-1">
+<div class="w-0.5 h-4 bg-outline-variant">
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-container">
+</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate max-w-[140px]">Oslo S Jernbane</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary px-2 py-0.5 rounded-full bg-surface-container-high">Fastpris NOK</span>
+</div>
+</div>
+<div class="relative z-10 flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+ Ingen skjulte gebyrer • Ingen rush-tillegg i appen
+ </div>
+</div>
+<div class="mt-space-lg flex flex-col">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">
+ Book a ride in seconds.
+ </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+ Travel effortlessly across greater Oslo. Lock in transparent, upfront prices in NOK before you confirm every trip.
+ </p>
+</div>
+</section>
+<!-- Slide 2: Real-time Telemetry & Live Map -->
+<section class="min-w-full px-margin-mobile flex flex-col box-border">
+<div class="relative w-full rounded-2xl bg-surface-container-low p-space-lg flex flex-col justify-between overflow-hidden shadow-sm" style="min-height: 290px;">
+<!-- Telemetry Map Preview -->
+<div class="absolute inset-0 w-full h-full opacity-35 bg-cover bg-center" data-location="Oslo, Norway" style="background-image: url('IMG[75178cddb9.png]');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/70 to-transparent">
+</div>
+<div class="relative z-10 flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-lowest shadow-sm text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">near_me</span>
+ Live Telemetri
+ </span>
+<span class="font-label-md text-label-md text-on-surface-variant">02 / 03</span>
+</div>
+<!-- Driver Live Badge Overlay -->
+<div class="relative z-10 my-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-title-sm text-title-sm">
+ MK
+ </div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">Magnus • Polestar 2</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+ Ankomst om 3 min
+ </span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sikkerhetskode</span>
+<span class="font-title-md text-title-md text-primary tracking-wider font-mono">4821</span>
+</div>
+</div>
+<div class="relative z-10 flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">security</span>
+ Verifisert BankID fører • Sanntids GPS-deling
+ </div>
+</div>
+<div class="mt-space-lg flex flex-col">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">
+ Track your driver live.
+ </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+ Follow your electric vehicle with real-time GPS precision. Match your one-time safety PIN before stepping inside.
+ </p>
+</div>
+</section>
+<!-- Slide 3: Nordic Payment Ecosystem -->
+<section class="min-w-full px-margin-mobile flex flex-col box-border">
+<div class="relative w-full rounded-2xl bg-surface-container-low p-space-lg flex flex-col justify-between overflow-hidden shadow-sm" style="min-height: 290px;">
+<div class="absolute -right-8 -bottom-8 w-40 h-40 rounded-full bg-secondary-container/30 blur-2xl pointer-events-none">
+</div>
+<div class="relative z-10 flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-lowest shadow-sm text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+ Sømløs Betaling
+ </span>
+<span class="font-label-md text-label-md text-on-surface-variant">03 / 03</span>
+</div>
+<!-- Payment Options Grid -->
+<div class="relative z-10 my-space-md grid grid-cols-3 gap-2">
+<!-- Vipps Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-8 h-8 rounded-full bg-on-tertiary-container/15 flex items-center justify-center text-on-tertiary-container mb-1">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Vipps</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Direkte</span>
+</div>
+<!-- Card / BankID -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Kort</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">BankID</span>
+</div>
+<!-- Cash / Driver -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Kontant</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Til sjåfør</span>
+</div>
+</div>
+<div class="relative z-10 flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+ 256-bit kryptering • Norsk BankID-autentisering
+ </div>
+</div>
+<div class="mt-space-lg flex flex-col">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">
+ Pay your way.
+ </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+ One-tap checkout with Vipps, saved corporate cards with automatic digital receipts, or safe cash on arrival.
+ </p>
+</div>
+</section>
+</div>
+</div>
+<!-- Interactive Slide Navigation Indicators -->
+<div class="flex items-center justify-center gap-2 my-space-lg px-margin-mobile">
+<button aria-label="Slide 1" class="indicator-pill h-2 rounded-full transition-all duration-300 w-8 bg-primary" data-index="0" type="button">
+</button>
+<button aria-label="Slide 2" class="indicator-pill h-2 rounded-full transition-all duration-300 w-2 bg-outline-variant" data-index="1" type="button">
+</button>
+<button aria-label="Slide 3" class="indicator-pill h-2 rounded-full transition-all duration-300 w-2 bg-outline-variant" data-index="2" type="button">
+</button>
+</div>
+<!-- Bottom CTA Actions -->
+<div class="flex flex-col gap-2.5 px-margin-mobile pb-space-lg">
+<button class="w-full h-14 rounded-xl bg-secondary text-on-secondary font-title-sm text-title-sm shadow-md active:scale-[0.98] transition-transform flex items-center justify-center gap-2" id="next-btn" type="button">
+<span id="btn-label">Continue</span>
+<span class="material-symbols-outlined text-[20px]" id="btn-icon">arrow_forward</span>
+</button>
+<button class="w-full h-12 rounded-xl text-primary font-title-sm text-title-sm flex items-center justify-center hover:bg-surface-container-low transition-colors" type="button">
+ Already have an account? Sign In
+ </button>
+</div>
+</div>
+<script>
+ (function() {
+ let currentSlide = 0;
+ const totalSlides = 3;
+ const track = document.getElementById('slides-track');
+ const pills = document.querySelectorAll('.indicator-pill');
+ const nextBtn = document.getElementById('next-btn');
+ const btnLabel = document.getElementById('btn-label');
+ const btnIcon = document.getElementById('btn-icon');
+ const skipBtn = document.getElementById('skip-btn');
+
+ function updateCarousel(index) {
+ currentSlide = Math.max(0, Math.min(index, totalSlides - 1));
+ track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+ pills.forEach((pill, i) => {
+ if (i === currentSlide) {
+ pill.classList.remove('w-2', 'bg-outline-variant');
+ pill.classList.add('w-8', 'bg-primary');
+ } else {
+ pill.classList.remove('w-8', 'bg-primary');
+ pill.classList.add('w-2', 'bg-outline-variant');
+ }
+ });
+
+ if (currentSlide === totalSlides - 1) {
+ btnLabel.textContent = 'Get Started';
+ btnIcon.textContent = 'check';
+ nextBtn.classList.remove('bg-secondary');
+ nextBtn.classList.add('bg-primary-container');
+ } else {
+ btnLabel.textContent = 'Continue';
+ btnIcon.textContent = 'arrow_forward';
+ nextBtn.classList.add('bg-secondary');
+ nextBtn.classList.remove('bg-primary-container');
+ }
+ }
+
+ nextBtn.addEventListener('click', () => {
+ if (currentSlide < totalSlides - 1) {
+ updateCarousel(currentSlide + 1);
+ } else {
+ updateCarousel(0);
+ }
+ });
+
+ skipBtn.addEventListener('click', () => {
+ updateCarousel(totalSlides - 1);
+ });
+
+ pills.forEach((pill) => {
+ pill.addEventListener('click', () => {
+ const index = parseInt(pill.getAttribute('data-index'), 10);
+ updateCarousel(index);
+ });
+ });
+
+ // Touch Swipe Support
+ let startX = 0;
+ let endX = 0;
+
+ track.parentElement.addEventListener('touchstart', (e) => {
+ startX = e.touches[0].clientX;
+ }, { passive: true });
+
+ track.parentElement.addEventListener('touchend', (e) => {
+ endX = e.changedTouches[0].clientX;
+ const diff = startX - endX;
+ if (Math.abs(diff) > 40) {
+ if (diff > 0 && currentSlide < totalSlides - 1) {
+ updateCarousel(currentSlide + 1);
+ } else if (diff < 0 && currentSlide > 0) {
+ updateCarousel(currentSlide - 1);
+ }
+ }
+ }, { passive: true });
+ })();
+</script>
+</main>
+</body>
+</html>

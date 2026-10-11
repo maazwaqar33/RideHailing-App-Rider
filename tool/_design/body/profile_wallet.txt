@@ -1,0 +1,308 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(15,42,74,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<img alt="Nordic Ride Logo" class="h-8 w-auto object-contain" src="IMG[040c51c58f.jpg]"/>
+<span class="font-title-sm text-title-sm text-primary tracking-tight font-semibold">Nordic Ride</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Wallet</span>
+<a class="min-w-[44px] min-h-[44px] flex items-center justify-end" data-path="profile" href="#">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary-container" src="IMG[ae0f59597a.jpg]"/>
+</a>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 pb-20 bg-surface">
+<div class="flex flex-col w-full">
+<div class="px-margin-mobile pt-space-md pb-space-xl flex flex-col gap-space-lg max-w-md mx-auto w-full">
+<!-- User Profile Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_4px_16px_-2px_rgba(15,42,74,0.06)] flex items-center gap-space-md">
+<div class="relative shrink-0">
+<img alt="Sara Hansen profile picture" class="w-16 h-16 rounded-full object-cover" src="IMG[ae0f59597a.jpg]"/>
+<div class="absolute -bottom-1 -right-1 bg-secondary text-on-secondary rounded-full p-0.5 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-title-sm text-title-sm text-primary font-semibold truncate">Sara Hansen</span>
+<span class="bg-surface-container-high text-primary px-2 py-0.5 rounded-full font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">eco</span>
+ Verified Rider
+ </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">sara.hansen@example.no</span>
+<span class="font-label-md text-label-md text-outline font-medium mt-0.5">+47 941 23 891</span>
+</div>
+</div>
+<!-- Nordic Ride Cash Wallet Card -->
+<div class="relative overflow-hidden bg-gradient-to-br from-primary-container via-primary to-primary-container text-on-primary rounded-xl p-space-md shadow-[0_12px_32px_-4px_rgba(15,42,74,0.12)]">
+<div class="absolute -right-10 -bottom-10 w-36 h-36 rounded-full bg-secondary-fixed-dim/10 blur-2xl pointer-events-none">
+</div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+</div>
+<span class="font-label-lg text-label-lg text-secondary-fixed font-semibold tracking-wide uppercase">Nordic Ride Cash</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest/15 backdrop-blur-md px-2.5 py-1 rounded-full text-surface-container-lowest font-medium">Oslo Transit Pass</span>
+</div>
+<div class="flex items-baseline justify-between mb-4 relative z-10">
+<div>
+<span class="font-label-md text-label-md text-primary-fixed-dim block">Available Balance</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tight text-surface-container-lowest">450</span>
+<span class="font-currency-display text-currency-display font-semibold text-secondary-fixed">NOK</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">CO₂ Saved</span>
+<span class="font-title-sm text-title-sm text-secondary-fixed font-semibold block">18.4 kg</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-none relative z-10">
+<button class="flex-1 bg-secondary hover:bg-secondary-container transition-all active:scale-[0.98] text-on-secondary font-title-sm text-title-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+ Add Money / Top Up
+ </button>
+<button aria-label="Auto top-up settings" class="w-12 h-12 rounded-lg bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 flex items-center justify-center text-surface-container-lowest transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">tune</span>
+</button>
+</div>
+</div>
+<!-- Payment Methods Section -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-1">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Payment Methods</span>
+<span class="font-label-md text-label-md text-secondary font-medium">BankID Connected</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_-2px_rgba(15,42,74,0.06)] overflow-hidden flex flex-col">
+<!-- Vipps Option -->
+<div class="p-space-md flex items-center justify-between bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-[#FF5B24]/10 text-[#FF5B24] flex items-center justify-center shrink-0 font-bold">
+<span class="material-symbols-outlined text-2xl">smartphone</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Vipps</span>
+<span class="bg-[#FF5B24] text-on-primary font-label-sm text-label-sm px-1.5 py-0.5 rounded font-bold uppercase">Default</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">+47 ••• •• 891</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Visa Option -->
+<div class="p-space-md flex items-center justify-between bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">credit_card</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Visa</span>
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-1.5 py-0.2 rounded font-medium">BankID Verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ending in ••4291</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-xl">radio_button_unchecked</span>
+</div>
+<!-- Mastercard Option -->
+<div class="p-space-md flex items-center justify-between bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">credit_card</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Mastercard</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ending in ••1084</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-xl">radio_button_unchecked</span>
+</div>
+<!-- Direct Driver Cash Option -->
+<div class="p-space-md flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">payments</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Driver Cash Payment</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accept cash at trip completion</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="cashToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary">
+</div>
+</label>
+</div>
+<!-- Add Payment Method CTA -->
+<button class="w-full py-3.5 px-space-md bg-surface-container-low hover:bg-surface-container text-primary font-title-sm text-title-sm flex items-center justify-center gap-2 transition-colors font-semibold" type="button">
+<span class="material-symbols-outlined text-lg">add</span>
+ Add Payment Method
+ </button>
+</div>
+</div>
+<!-- Saved Places Section -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-1">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Saved Places</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_-2px_rgba(15,42,74,0.06)] overflow-hidden flex flex-col">
+<!-- Home -->
+<div class="p-space-md flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Home</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Frognerveien 14, 0263 Oslo</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-xl">edit</span>
+</div>
+<!-- Work -->
+<div class="p-space-md flex items-center justify-between hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">business</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Work</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Aker Brygge, Stranden 1, Oslo</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-xl">edit</span>
+</div>
+<!-- Add Place Button -->
+<button class="w-full py-3.5 px-space-md bg-surface-container-low hover:bg-surface-container text-primary font-title-sm text-title-sm flex items-center justify-center gap-2 transition-colors font-semibold" type="button">
+<span class="material-symbols-outlined text-lg">add_location_alt</span>
+ Add New Place
+ </button>
+</div>
+</div>
+<!-- App & Ride Preferences -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-title-sm text-title-sm text-primary font-semibold px-1">Preferences</span>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_-2px_rgba(15,42,74,0.06)] p-space-md flex flex-col gap-space-md">
+<!-- Eco-Ride Priority -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Eco-Ride Priority</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Default to fully electric vehicles</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="ecoToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary">
+</div>
+</label>
+</div>
+<!-- Language Switcher -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">translate</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Language</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Språkvalg</span>
+</div>
+</div>
+<div class="flex bg-surface-container rounded-lg p-1 shrink-0">
+<button class="px-3 py-1 rounded font-label-md text-label-md font-semibold bg-surface-container-lowest text-primary shadow-sm" id="langEn" type="button">EN</button>
+<button class="px-3 py-1 rounded font-label-md text-label-md font-semibold text-on-surface-variant hover:text-on-surface" id="langNo" type="button">NO</button>
+</div>
+</div>
+<!-- Dark Mode Toggle -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">dark_mode</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-sm text-title-sm text-primary font-semibold">Dark Theme</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Nordic winter polar mode</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input class="sr-only peer" id="themeToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Account & Data Controls -->
+<div class="flex flex-col gap-space-xs pt-2">
+<button class="w-full py-3 px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-primary rounded-xl font-label-lg text-label-lg flex items-center justify-between transition-colors shadow-[0_2px_8px_rgba(15,42,74,0.04)]" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl text-on-surface-variant">shield</span>
+<span>Export personal trip data (GDPR)</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-lg">download</span>
+</button>
+<button class="w-full py-3 px-space-md bg-surface-container-lowest hover:bg-error-container/20 text-error rounded-xl font-label-lg text-label-lg flex items-center justify-between transition-colors shadow-[0_2px_8px_rgba(15,42,74,0.04)]" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">delete_forever</span>
+<span>Delete account</span>
+</div>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+<div class="text-center pt-2">
+<span class="font-label-sm text-label-sm text-outline">Nordic Ride v3.4.1 (Oslo, Norway)</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+ // Language Selector toggle interaction
+ const btnEn = document.getElementById('langEn');
+ const btnNo = document.getElementById('langNo');
+ if (btnEn && btnNo) {
+ btnEn.addEventListener('click', () => {
+ btnEn.className = 'px-3 py-1 rounded font-label-md text-label-md font-semibold bg-surface-container-lowest text-primary shadow-sm';
+ btnNo.className = 'px-3 py-1 rounded font-label-md text-label-md font-semibold text-on-surface-variant hover:text-on-surface';
+ });
+ btnNo.addEventListener('click', () => {
+ btnNo.className = 'px-3 py-1 rounded font-label-md text-label-md font-semibold bg-surface-container-lowest text-primary shadow-sm';
+ btnEn.className = 'px-3 py-1 rounded font-label-md text-label-md font-semibold text-on-surface-variant hover:text-on-surface';
+ });
+ }
+</script>
+</main>
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,42,74,0.06)]" data-active-classes="text-secondary font-semibold">
+<div class="flex justify-around items-center h-16 px-space-xs">
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="ride-booking" href="#">
+<span class="material-symbols-outlined text-2xl">local_taxi</span>
+<span class="font-label-sm text-label-sm">Ride</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="activity-trips" href="#">
+<span class="material-symbols-outlined text-2xl">route</span>
+<span class="font-label-sm text-label-sm">Trips</span>
+</a>
+<a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] transition-colors text-secondary font-semibold" data-path="wallet" href="#">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+</body>
+</html>

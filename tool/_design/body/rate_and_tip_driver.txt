@@ -1,0 +1,233 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-space-xs" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<img alt="logo.jpg" class="h-8 w-auto object-contain hidden sm:block" src="IMG[c9218c04df.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-on-surface tracking-tight truncate max-w-[200px]">Rating</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen">
+<div class="flex flex-col w-full pb-safe">
+<!-- Interactive Feedback & Rating Container -->
+<div class="px-margin-mobile flex flex-col gap-space-lg pt-space-md">
+<!-- Card: Trip Overview & Driver Profile -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<!-- Ambient subtle Nordic gradient backdrop -->
+<div class="absolute -top-12 -right-12 w-40 h-40 bg-secondary-fixed/20 rounded-full blur-2xl pointer-events-none">
+</div>
+<!-- Route & Completion Summary -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary">
+</span>
+ Trip completed
+ </span>
+<span class="font-label-md text-label-md text-on-surface-variant">Polestar 2 · EL 12345</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Oslo S → Oslo Airport (OSL)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trip with Erik Larsen · 47 km · 38 min</p>
+</div>
+<!-- Driver Avatar & Verified Badge -->
+<div class="flex flex-col items-center justify-center pt-space-xs">
+<div class="relative mb-space-xs">
+<div class="w-24 h-24 rounded-full overflow-hidden shadow-md bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of Erik Larsen, a friendly 38-year-old Norwegian driver with a warm gentle smile wearing a crisp dark wool coat inside a modern electric vehicle cabin with soft daylight and clean Scandinavian tones" src="IMG[e255d34d78.jpg]"/>
+</div>
+<!-- Verified check badge -->
+<div class="absolute -bottom-1 -right-1 bg-secondary text-on-secondary rounded-full p-1 shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface">Erik Larsen</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">star</span>
+ 4.9
+ </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Top Rated Oslo Fleet Partner</p>
+<!-- 5-Star Rating Component -->
+<div aria-label="Trip Rating" class="flex items-center gap-2 mt-space-md" id="star-rating-container" role="radiogroup">
+<button aria-label="1 star" class="star-btn min-w-[44px] min-h-[44px] flex items-center justify-center text-tertiary-fixed-dim transition-transform active:scale-90" data-value="1" type="button">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button aria-label="2 stars" class="star-btn min-w-[44px] min-h-[44px] flex items-center justify-center text-tertiary-fixed-dim transition-transform active:scale-90" data-value="2" type="button">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button aria-label="3 stars" class="star-btn min-w-[44px] min-h-[44px] flex items-center justify-center text-tertiary-fixed-dim transition-transform active:scale-90" data-value="3" type="button">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button aria-label="4 stars" class="star-btn min-w-[44px] min-h-[44px] flex items-center justify-center text-tertiary-fixed-dim transition-transform active:scale-90" data-value="4" type="button">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button aria-label="5 stars" class="star-btn min-w-[44px] min-h-[44px] flex items-center justify-center text-tertiary-fixed-dim transition-transform active:scale-90" data-value="5" type="button">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+<span class="font-label-md text-label-md text-secondary mt-1 font-semibold tracking-wide uppercase">Exceptional Experience</span>
+</div>
+<!-- Quick Feedback Pills -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">What made the ride special?</label>
+<div class="flex flex-wrap gap-2" id="feedback-tags">
+<button class="tag-pill px-3 py-2 rounded-full font-label-md text-label-md transition-colors bg-primary text-on-primary shadow-xs" data-selected="true" type="button">
+ Punctual arrival
+ </button>
+<button class="tag-pill px-3 py-2 rounded-full font-label-md text-label-md transition-colors bg-primary text-on-primary shadow-xs" data-selected="true" type="button">
+ Smooth driving
+ </button>
+<button class="tag-pill px-3 py-2 rounded-full font-label-md text-label-md transition-colors bg-primary text-on-primary shadow-xs" data-selected="true" type="button">
+ Clean electric cabin
+ </button>
+<button class="tag-pill px-3 py-2 rounded-full font-label-md text-label-md transition-colors bg-surface-container text-on-surface hover:bg-surface-container-high" data-selected="false" type="button">
+ Quiet ride
+ </button>
+<button class="tag-pill px-3 py-2 rounded-full font-label-md text-label-md transition-colors bg-surface-container text-on-surface hover:bg-surface-container-high" data-selected="false" type="button">
+ Great conversation
+ </button>
+</div>
+</div>
+<!-- Feedback Comment Box -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="comment-box">Personal note for Erik</label>
+<div class="relative bg-surface-container-low rounded-lg p-space-sm focus-within:bg-surface-container-lowest transition-colors">
+<textarea class="w-full bg-transparent text-on-surface font-body-sm text-body-sm resize-none focus:outline-none" id="comment-box" placeholder="Share your experience..." rows="3">Erik was fantastic, warm car and smooth ride out to Gardermoen.</textarea>
+<div class="flex justify-end pt-1">
+<span class="font-label-sm text-label-sm text-outline">63/300</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Card: Tip Selection -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<h3 class="font-title-sm text-title-sm text-on-surface">Add a tip for Erik</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">100% of tips go directly to the driver</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/40 flex items-center justify-center text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+</div>
+</div>
+<!-- Tip Options Row -->
+<div class="grid grid-cols-5 gap-1.5" id="tip-options-row">
+<button class="tip-btn h-14 rounded-lg flex flex-col items-center justify-center font-label-md text-label-md transition-all bg-surface-container text-on-surface hover:bg-surface-container-high" data-amount="0" type="button">
+<span>No tip</span>
+</button>
+<button class="tip-btn h-14 rounded-lg flex flex-col items-center justify-center font-label-md text-label-md transition-all bg-surface-container text-on-surface hover:bg-surface-container-high" data-amount="20" type="button">
+<span>+20 kr</span>
+</button>
+<!-- Selected State with Teal Highlight -->
+<button class="tip-btn h-14 rounded-lg flex flex-col items-center justify-center font-label-md text-label-md transition-all bg-secondary text-on-secondary shadow-sm scale-102 font-semibold" data-amount="50" data-selected="true" type="button">
+<span>+50 kr</span>
+<span class="font-label-sm text-label-sm opacity-90">Popular</span>
+</button>
+<button class="tip-btn h-14 rounded-lg flex flex-col items-center justify-center font-label-md text-label-md transition-all bg-surface-container text-on-surface hover:bg-surface-container-high" data-amount="100" type="button">
+<span>+100 kr</span>
+</button>
+<button class="tip-btn h-14 rounded-lg flex flex-col items-center justify-center font-label-md text-label-md transition-all bg-surface-container text-on-surface hover:bg-surface-container-high" data-amount="custom" type="button">
+<span>Custom</span>
+</button>
+</div>
+<!-- Norwegian Payment Guarantee / Vipps Integration Notice -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-6 h-6 rounded-full bg-on-tertiary-container/10 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[16px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface">Vipps · +47 ••• •• 892</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Charged with final trip receipt</span>
+</div>
+</div>
+</section>
+<!-- Primary Action: Submit Review -->
+<div class="flex flex-col gap-space-xs pt-space-xs pb-space-lg">
+<button class="w-full h-14 bg-primary-container text-on-primary rounded-xl font-title-sm text-title-sm flex items-center justify-center gap-2 shadow-md active:scale-[0.98] transition-all hover:bg-primary" id="submit-btn" type="button">
+<span>Submit Review</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<p class="font-label-sm text-label-sm text-outline text-center">Receipt and BankID verification sent to registered email</p>
+</div>
+</div>
+</div>
+<script>
+ // Micro-interactions for Star Rating
+ const starButtons = document.querySelectorAll('#star-rating-container .star-btn');
+ let currentRating = 5;
+
+ starButtons.forEach(btn => {
+ btn.addEventListener('click', () => {
+ const val = parseInt(btn.getAttribute('data-value'), 10);
+ currentRating = val;
+ starButtons.forEach((sBtn, idx) => {
+ const starIcon = sBtn.querySelector('.material-symbols-outlined');
+ if (idx < val) {
+ sBtn.classList.remove('text-outline-variant');
+ sBtn.classList.add('text-tertiary-fixed-dim');
+ starIcon.style.fontVariationSettings = "'FILL' 1";
+ } else {
+ sBtn.classList.remove('text-tertiary-fixed-dim');
+ sBtn.classList.add('text-outline-variant');
+ starIcon.style.fontVariationSettings = "'FILL' 0";
+ }
+ });
+ });
+ });
+
+ // Micro-interactions for Feedback Tags
+ const tagButtons = document.querySelectorAll('#feedback-tags .tag-pill');
+ tagButtons.forEach(tag => {
+ tag.addEventListener('click', () => {
+ const isSelected = tag.getAttribute('data-selected') === 'true';
+ if (isSelected) {
+ tag.setAttribute('data-selected', 'false');
+ tag.className = 'tag-pill px-3 py-2 rounded-full font-label-md text-label-md transition-colors bg-surface-container text-on-surface hover:bg-surface-container-high';
+ } else {
+ tag.setAttribute('data-selected', 'true');
+ tag.className = 'tag-pill px-3 py-2 rounded-full font-label-md text-label-md transition-colors bg-primary text-on-primary shadow-xs';
+ }
+ });
+ });
+
+ // Micro-interactions for Tip Buttons
+ const tipButtons = document.querySelectorAll('#tip-options-row .tip-btn');
+ tipButtons.forEach(btn => {
+ btn.addEventListener('click', () => {
+ tipButtons.forEach(other => {
+ other.removeAttribute('data-selected');
+ other.className = 'tip-btn h-14 rounded-lg flex flex-col items-center justify-center font-label-md text-label-md transition-all bg-surface-container text-on-surface hover:bg-surface-container-high';
+ });
+ btn.setAttribute('data-selected', 'true');
+ btn.className = 'tip-btn h-14 rounded-lg flex flex-col items-center justify-center font-label-md text-label-md transition-all bg-secondary text-on-secondary shadow-sm scale-102 font-semibold';
+ });
+ });
+
+ // Simple feedback on submission click
+ const submitBtn = document.getElementById('submit-btn');
+ submitBtn.addEventListener('click', () => {
+ submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>
+<span>Submitting...</span>';
+ setTimeout(() => {
+ submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Thank you, Erik notified!</span>';
+ submitBtn.classList.remove('bg-primary-container');
+ submitBtn.classList.add('bg-secondary');
+ }, 700);
+ });
+</script>
+</main>
+</body>
+</html>

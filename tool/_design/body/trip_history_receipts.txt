@@ -1,0 +1,330 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(15,42,74,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<img alt="Nordic Ride Logo" class="h-8 w-auto object-contain" src="IMG[040c51c58f.jpg]"/>
+<span class="font-title-sm text-title-sm text-primary tracking-tight font-semibold">Nordic Ride</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Activity Trips</span>
+<a class="min-w-[44px] min-h-[44px] flex items-center justify-end" data-path="profile" href="#">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary-container" src="IMG[ae0f59597a.jpg]"/>
+</a>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 pb-20 bg-surface">
+<div class="flex flex-col w-full">
+<div class="px-margin-mobile pt-space-md pb-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Oslo Mobility Hub</span>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-0.5">Trip Activity</h1>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded-full shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse">
+</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">4 Recent</span>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile py-space-sm">
+<div class="flex p-1 bg-surface-container rounded-xl">
+<button class="flex-1 py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary bg-primary transition-all duration-200 shadow-sm flex items-center justify-center gap-1.5" id="tab-past" onclick="switchFilter('past')">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>Past Trips</span>
+</button>
+<button class="flex-1 py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant transition-all duration-200 flex items-center justify-center gap-1.5" id="tab-scheduled" onclick="switchFilter('scheduled')">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Scheduled</span>
+<span class="ml-1 px-1.5 py-0.2 bg-surface-container-highest text-primary font-label-sm text-label-sm rounded-full">0</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-md px-margin-mobile pb-space-xl" id="past-trips-content">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col gap-space-md transition-all">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-full bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-2xl">local_taxi</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface">Oslo S → Oslo Lufthavn</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Today, 14:48 • Comfort Electric</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-currency-display text-currency-display text-primary font-bold">1,090 NOK</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 mt-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+ Completed
+ </span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-2.5">
+<img class="w-7 h-7 rounded-full object-cover" data-alt="Warm and respectful headshot portrait of Erik Larsen, a middle-aged Norwegian executive chauffeur in a sleek tailored dark coat smiling gently, photographed against a minimalist Scandinavian architectural backdrop with soft morning fjord lighting." src="IMG[37bcc4717e.jpg]"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Erik Larsen</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Toyota Camry • EK 49201</span>
+</div>
+</div>
+<button class="flex items-center gap-1 font-label-md text-label-md text-secondary font-semibold py-1 px-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors" id="toggle-receipt-btn" onclick="toggleDetails()">
+<span>Receipt details</span>
+<span class="material-symbols-outlined text-base transition-transform duration-200" id="receipt-arrow">expand_more</span>
+</button>
+</div>
+<div class="hidden flex-col gap-space-md pt-space-sm bg-surface-container-low -mx-space-md -mb-space-md p-space-md rounded-b-xl" id="receipt-drawer">
+<div class="relative w-full h-36 rounded-xl overflow-hidden shadow-sm">
+<div class="w-full h-full bg-cover bg-center" data-location="Oslo Sentralstasjon to Oslo Airport Gardermoen" style="background-image: url('IMG[dd3fc6a481.png]')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex items-end p-2.5">
+<span class="font-label-sm text-label-sm text-on-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary-fixed">route</span>
+ 47.2 km • 38 min via E6 Express
+ </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-3 shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Base Fare + Distance (Eco Comfort)</span>
+<span class="text-on-surface font-medium">940.00 NOK</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Airport Access Toll (Gardermoen)</span>
+<span class="text-on-surface font-medium">150.00 NOK</span>
+</div>
+<div class="flex justify-between items-center pt-2 font-label-md text-label-md font-semibold text-primary">
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container inline-block">
+</span>
+ Paid via Vipps (+47 982 •• 102)
+ </span>
+<span class="text-currency-display font-title-sm">1,090.00 NOK</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="h-12 rounded-lg bg-surface-container-high text-primary font-label-lg text-label-lg flex items-center justify-center gap-1.5 shadow-sm active:scale-[0.98] transition-transform" onclick="downloadReceiptNotice()">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Download PDF</span>
+</button>
+<button class="h-12 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-1.5 shadow-md active:scale-[0.98] transition-transform" onclick="rebookTrip('Oslo S to Oslo Lufthavn')">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">repeat</span>
+<span>Re-book Ride</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col gap-space-sm transition-all hover:bg-surface-container-lowest/90">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-full bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-2xl">directions_car</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface">Aker Brygge → Frognerveien 14</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Yesterday, 22:15 • Standard</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-currency-display text-currency-display text-primary font-bold">210 NOK</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 mt-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+ Completed
+ </span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary">eco</span>
+ Zero-emission EV Ride • 2.8 km
+ </span>
+<button class="font-label-md text-label-md text-primary font-medium hover:text-secondary flex items-center gap-1 py-1" onclick="rebookTrip('Aker Brygge to Frognerveien 14')">
+<span>Re-book</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col gap-space-sm transition-all hover:bg-surface-container-lowest/90">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-full bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-2xl">directions_car</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface">MUNCH Museum → Nationaltheatret</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">12 Oct, 18:30 • Standard</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-currency-display text-currency-display text-primary font-bold">185 NOK</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 mt-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+ Completed
+ </span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary">credit_card</span>
+ BankID Verified Card • 2.1 km
+ </span>
+<button class="font-label-md text-label-md text-primary font-medium hover:text-secondary flex items-center gap-1 py-1" onclick="rebookTrip('MUNCH Museum to Nationaltheatret')">
+<span>Re-book</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col gap-space-sm transition-all hover:bg-surface-container-lowest/90">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-full bg-surface-container-high flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-2xl">airport_shuttle</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface">Oslo S → Holmenkollen</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">08 Oct, 11:10 • XL Van (Ski Pack)</p>
+</div>
+</div>
+<div class="text-right">
+<div class="font-currency-display text-currency-display text-primary font-bold">640 NOK</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 mt-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+ Completed
+ </span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary">downhill_skiing</span>
+ Luggage & Winter Gear Space • 10.4 km
+ </span>
+<button class="font-label-md text-label-md text-primary font-medium hover:text-secondary flex items-center gap-1 py-1" onclick="rebookTrip('Oslo S to Holmenkollen')">
+<span>Re-book</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="rounded-xl p-space-md bg-surface-container-high flex items-center justify-between shadow-sm mt-space-xs">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-xl">forest</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary font-semibold">Climate Impact Summary</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Saved 14.8 kg CO₂ via all-electric rides</p>
+</div>
+</div>
+<span class="font-title-sm text-title-sm text-secondary font-bold">100% EV</span>
+</div>
+</div>
+<div class="hidden flex-col items-center justify-center px-margin-mobile py-space-xl text-center" id="scheduled-trips-content">
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center text-secondary mb-space-md shadow-inner">
+<span class="material-symbols-outlined text-4xl">calendar_month</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">No scheduled rides yet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mt-1">Book your airport transfer or meeting ride in advance for smooth winter travels across Oslo.</p>
+<button class="mt-space-lg h-12 px-6 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg shadow-md active:scale-95 transition-transform flex items-center gap-2" onclick="switchFilter('past')">
+<span class="material-symbols-outlined text-lg">local_taxi</span>
+<span>Schedule a Ride</span>
+</button>
+</div>
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 text-label-md font-label-md opacity-0 pointer-events-none transition-opacity duration-300" id="toast">
+<span class="material-symbols-outlined text-secondary-fixed text-lg">check_circle</span>
+<span id="toast-text">Receipt downloaded successfully</span>
+</div>
+</div>
+<script>
+ function toggleDetails() {
+ const drawer = document.getElementById('receipt-drawer');
+ const arrow = document.getElementById('receipt-arrow');
+ const isHidden = drawer.classList.contains('hidden');
+ 
+ if (isHidden) {
+ drawer.classList.remove('hidden');
+ drawer.classList.add('flex');
+ arrow.style.transform = 'rotate(180deg)';
+ } else {
+ drawer.classList.add('hidden');
+ drawer.classList.remove('flex');
+ arrow.style.transform = 'rotate(0deg)';
+ }
+ }
+
+ function switchFilter(tab) {
+ const pastBtn = document.getElementById('tab-past');
+ const scheduledBtn = document.getElementById('tab-scheduled');
+ const pastContent = document.getElementById('past-trips-content');
+ const scheduledContent = document.getElementById('scheduled-trips-content');
+
+ if (tab === 'past') {
+ pastBtn.className = 'flex-1 py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary bg-primary transition-all duration-200 shadow-sm flex items-center justify-center gap-1.5';
+ scheduledBtn.className = 'flex-1 py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant transition-all duration-200 flex items-center justify-center gap-1.5';
+ pastContent.classList.remove('hidden');
+ pastContent.classList.add('flex');
+ scheduledContent.classList.add('hidden');
+ scheduledContent.classList.remove('flex');
+ } else {
+ scheduledBtn.className = 'flex-1 py-2.5 rounded-lg font-label-lg text-label-lg text-on-primary bg-primary transition-all duration-200 shadow-sm flex items-center justify-center gap-1.5';
+ pastBtn.className = 'flex-1 py-2.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant transition-all duration-200 flex items-center justify-center gap-1.5';
+ scheduledContent.classList.remove('hidden');
+ scheduledContent.classList.add('flex');
+ pastContent.classList.add('hidden');
+ pastContent.classList.remove('flex');
+ }
+ }
+
+ function showToast(message) {
+ const toast = document.getElementById('toast');
+ const text = document.getElementById('toast-text');
+ text.textContent = message;
+ toast.classList.remove('opacity-0', 'pointer-events-none');
+ toast.classList.add('opacity-100');
+ setTimeout(() => {
+ toast.classList.add('opacity-0', 'pointer-events-none');
+ toast.classList.remove('opacity-100');
+ }, 2800);
+ }
+
+ function downloadReceiptNotice() {
+ showToast('PDF Receipt sent to your BankID inbox');
+ }
+
+ function rebookTrip(route) {
+ showToast('Routing to booking: ' + route);
+ }
+</script>
+</main>
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,42,74,0.06)]" data-active-classes="text-secondary font-semibold">
+<div class="flex justify-around items-center h-16 px-space-xs">
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="ride-booking" href="#">
+<span class="material-symbols-outlined text-2xl">local_taxi</span>
+<span class="font-label-sm text-label-sm">Ride</span>
+</a>
+<a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] transition-colors text-secondary font-semibold" data-path="activity-trips" href="#">
+<span class="material-symbols-outlined text-2xl">route</span>
+<span class="font-label-sm text-label-sm">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="wallet" href="#">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-0.5 min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,258 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Go Back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors -ml-space-xs" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<img alt="logo.jpg" class="h-8 w-auto object-contain hidden sm:block" src="IMG[c9218c04df.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-on-surface tracking-tight truncate max-w-[200px]">Confirm And Pay</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen">
+<div class="flex flex-col w-full pb-safe">
+<!-- Subtle Route Map Graphic Preview -->
+<div class="relative w-full h-44 bg-surface-container-high overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-location="Oslo Sentralstasjon to Oslo Lufthavn Gardermoen" style="background-image: url('IMG[44037d8e3e.png]');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-primary/30 via-transparent to-surface pointer-events-none">
+</div>
+<!-- Floating Quick Route Pill over Map -->
+<div class="absolute top-3 left-4 right-4 flex items-center justify-between bg-surface/90 backdrop-blur-md rounded-xl p-3 shadow-md">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary shrink-0 shadow-sm">
+</span>
+<div class="truncate">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Fastest Way</p>
+<p class="font-title-sm text-title-sm text-on-surface truncate">Oslo S → Oslo Airport (OSL)</p>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1 rounded-full text-secondary shrink-0">
+<span class="material-symbols-outlined text-[16px]">navigation</span>
+<span class="font-label-md text-label-md font-semibold">Live GPS</span>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile flex flex-col gap-5 -mt-3 relative z-10">
+<!-- Route Summary & Telemetry Bento -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Eco Corridor</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Oslo Kommune</span>
+</div>
+<!-- Route Pills Row -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">distance</span>
+<span class="font-label-md text-label-md text-on-surface">47 km (E6 nord)</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">schedule</span>
+<span class="font-label-md text-label-md text-on-surface">38 min</span>
+</div>
+<div class="flex items-center gap-1.5 bg-secondary-container/60 px-3 py-1.5 rounded-full text-on-secondary-container">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span class="font-label-md text-label-md font-semibold">100% EV Zero Emission</span>
+</div>
+</div>
+</div>
+<!-- Section Heading -->
+<div class="flex items-center justify-between px-1">
+<h2 class="font-title-md text-title-md text-on-surface">Available Fleets</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tap to choose</span>
+</div>
+<!-- Vehicle Selection Options List -->
+<div class="flex flex-col gap-3.5" id="vehicle-tier-group">
+<!-- Tier 1: Standard -->
+<div class="vehicle-card group relative bg-surface-container-lowest rounded-xl p-4 shadow-sm transition-all duration-200 cursor-pointer hover:bg-surface-container-low flex flex-col gap-3" onclick="selectTier(this, 'Standard', '890 NOK')" role="button" tabindex="0">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0 overflow-hidden p-1">
+<img class="w-full h-full object-contain" data-alt="Modern sleek white sedan electric vehicle side profile studio photography minimalist clean background soft Nordic daylight" src="IMG[47a76e27af.jpg]"/>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-title-sm text-title-sm text-on-surface">Standard</h3>
+<span class="bg-surface-container px-2 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant">4 min</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Camry or similar</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<p class="font-currency-display text-currency-display text-on-surface">890 NOK</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fixed price</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-3 font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">person</span> 4 seats
+ </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">luggage</span> 2 bags
+ </span>
+</div>
+<span class="selection-indicator w-5 h-5 rounded-full bg-surface-container flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+</div>
+<!-- Tier 2: Comfort (SELECTED DEFAULT) -->
+<div class="vehicle-card is-selected group relative bg-secondary-container/20 rounded-xl p-4 shadow-md transition-all duration-200 cursor-pointer flex flex-col gap-3" onclick="selectTier(this, 'Comfort', '1,090 NOK')" role="button" tabindex="0">
+<!-- Best Choice Badge -->
+<div class="absolute -top-2.5 right-4 bg-secondary text-on-secondary px-3 py-0.5 rounded-full font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>Best Choice</span>
+</div>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-14 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center shrink-0 overflow-hidden p-1 shadow-sm">
+<img class="w-full h-full object-contain" data-alt="High-end Polestar 2 Scandinavian electric fastback profile metallic midnight fjord blue studio automotive lighting sharp minimalist styling" src="IMG[a3dcb95794.jpg]"/>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-title-sm text-title-sm text-on-surface font-semibold">Comfort</h3>
+<span class="bg-secondary/15 text-secondary px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold">3 min</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium truncate">Polestar 2 or Executive EV</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<p class="font-currency-display text-currency-display text-on-surface">1,090 NOK</p>
+<p class="font-label-sm text-label-sm text-secondary font-semibold">Guaranteed rate</p>
+</div>
+</div>
+<!-- Comfort Highlights Tag -->
+<div class="flex items-center gap-1.5 bg-surface-container-lowest/80 rounded-lg px-2.5 py-1.5 w-fit">
+<span class="material-symbols-outlined text-secondary text-[16px]">air</span>
+<span class="font-label-md text-label-md text-on-surface">Silent EV &amp; Heated Seats</span>
+</div>
+<div class="flex items-center justify-between pt-0.5">
+<div class="flex items-center gap-3 font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">person</span> 4 seats
+ </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">luggage</span> 3 bags
+ </span>
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">wifi</span> Free Wi-Fi
+ </span>
+</div>
+<span class="selection-indicator w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+</div>
+<!-- Tier 3: XL Van -->
+<div class="vehicle-card group relative bg-surface-container-lowest rounded-xl p-4 shadow-sm transition-all duration-200 cursor-pointer hover:bg-surface-container-low flex flex-col gap-3" onclick="selectTier(this, 'XL Van', '1,450 NOK')" role="button" tabindex="0">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center shrink-0 overflow-hidden p-1">
+<img class="w-full h-full object-contain" data-alt="Executive luxury Mercedes EQV electric passenger van exterior dark titanium finish side angle automotive photography clean Oslo street setting" src="IMG[ba378ad8ea.jpg]"/>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-title-sm text-title-sm text-on-surface">XL Van</h3>
+<span class="bg-surface-container px-2 py-0.5 rounded-full font-label-sm text-label-sm text-on-surface-variant">7 min</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Mercedes EQV or similar</p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<p class="font-currency-display text-currency-display text-on-surface">1,450 NOK</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Group tariff</p>
+</div>
+</div>
+<!-- XL Highlight Tag -->
+<div class="flex items-center gap-1.5 bg-surface-container-low rounded-lg px-2.5 py-1.5 w-fit">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">workspaces</span>
+<span class="font-label-md text-label-md text-on-surface">Large Luggage Capacity</span>
+</div>
+<div class="flex items-center justify-between pt-0.5">
+<div class="flex items-center gap-3 font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">group</span> 6 seats
+ </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">luggage</span> 6+ bags
+ </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">accessible</span> Extra space
+ </span>
+</div>
+<span class="selection-indicator w-5 h-5 rounded-full bg-surface-container flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Nordic Reliability Micro-card -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex items-center gap-3 mb-2">
+<div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">ac_unit</span>
+</div>
+<div class="min-w-0">
+<p class="font-title-sm text-title-sm text-on-surface">Winter Ready &amp; Preheated</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">All vehicles outfitted with studded Nordic tires and cabin pre-conditioning.</p>
+</div>
+</div>
+</div>
+<!-- Bottom Sticky Action Bar -->
+<div class="sticky bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-xl p-margin-mobile pt-3 shadow-[0_-8px_30px_rgba(15,42,74,0.08)] flex flex-col gap-2.5">
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-title-sm text-title-sm flex items-center justify-between px-5 shadow-lg active:scale-[0.98] transition-transform" id="submit-ride-btn" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary-fixed text-[22px]">electric_car</span>
+<span class="font-title-sm text-title-sm" id="button-label">Request Comfort · 1,090 NOK</span>
+</div>
+<span class="material-symbols-outlined text-on-primary text-[20px]">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-1.5 text-center">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">check_circle</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Free cancellation for 2 minutes · Next step: Payment &amp; confirmation</p>
+</div>
+</div>
+</div>
+<script>
+ function selectTier(element, tierName, price) {
+ const cards = document.querySelectorAll('.vehicle-card');
+ cards.forEach(card => {
+ card.classList.remove('is-selected', 'bg-secondary-container/20', 'shadow-md');
+ card.classList.add('bg-surface-container-lowest', 'shadow-sm');
+ const indicator = card.querySelector('.selection-indicator');
+ if (indicator) {
+ indicator.classList.remove('bg-secondary', 'text-on-secondary');
+ indicator.classList.add('bg-surface-container', 'text-transparent');
+ }
+ });
+
+ element.classList.remove('bg-surface-container-lowest', 'shadow-sm');
+ element.classList.add('is-selected', 'bg-secondary-container/20', 'shadow-md');
+ 
+ const indicator = element.querySelector('.selection-indicator');
+ if (indicator) {
+ indicator.classList.remove('bg-surface-container', 'text-transparent');
+ indicator.classList.add('bg-secondary', 'text-on-secondary');
+ }
+
+ const btnLabel = document.getElementById('button-label');
+ if (btnLabel) {
+ btnLabel.textContent = `Request ${tierName} · ${price}`;
+ }
+ }
+</script>
+</main>
+</body>
+</html>

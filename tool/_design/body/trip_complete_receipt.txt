@@ -1,0 +1,260 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(15,42,74,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center text-primary -ml-2" onclick="history.back()">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<img alt="Nordic Ride Logo" class="h-8 w-auto object-contain" src="IMG[040c51c58f.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-primary font-semibold truncate ml-1">Trip Receipt Details</h1>
+</div>
+<div class="min-w-[44px] min-h-[44px] flex items-center justify-end">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary-container" src="IMG[ae0f59597a.jpg]"/>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface">
+<div class="flex flex-col w-full pb-safe">
+<div class="px-margin-mobile pt-4 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container mb-3 shadow-md animate-bounce">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md mb-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">eco</span>
+<span>100% Zero-Emission Ride</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Trip Completed</h2>
+<div class="flex items-center justify-center gap-1.5 text-on-surface-variant font-label-lg text-label-lg mt-1">
+<span class="font-medium text-primary">Oslo S</span>
+<span class="material-symbols-outlined text-base text-outline">arrow_forward</span>
+<span class="font-medium text-primary">Oslo Airport (Gardermoen)</span>
+</div>
+</div>
+<div class="px-margin-mobile mt-5 flex flex-col gap-4">
+<!-- Driver Recognition Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col items-center">
+<div class="relative mb-2">
+<img class="w-20 h-20 rounded-full object-cover shadow-sm ring-4 ring-surface-container" data-alt="Warm portrait photograph of Erik Larsen, a friendly middle-aged professional Norwegian chauffeur smiling politely at the camera, wearing a clean dark navy Nordic Ride zipper fleece against a soft neutral studio backdrop with natural daylight" src="IMG[FAILED(HTTP Error 400: Bad Request)]"/>
+<div class="absolute -bottom-1.5 right-1/2 translate-x-1/2 bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm whitespace-nowrap">
+<span class="material-symbols-outlined text-xs text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.98</span>
+</div>
+</div>
+<div class="mt-2 text-center">
+<h3 class="font-title-sm text-title-sm text-primary">Erik Larsen</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">Polestar 2 • Electric Executive</p>
+</div>
+<!-- Interactive 5-Star Rating -->
+<div class="flex items-center justify-center gap-2 mt-3" id="rating-stars">
+<button class="star-btn p-1 text-amber-400 focus:outline-none transition-transform active:scale-125" data-index="1" type="button">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn p-1 text-amber-400 focus:outline-none transition-transform active:scale-125" data-index="2" type="button">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn p-1 text-amber-400 focus:outline-none transition-transform active:scale-125" data-index="3" type="button">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn p-1 text-amber-400 focus:outline-none transition-transform active:scale-125" data-index="4" type="button">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn p-1 text-amber-400 focus:outline-none transition-transform active:scale-125" data-index="5" type="button">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+<!-- Quick Compliments -->
+<div class="flex flex-wrap justify-center gap-1.5 mt-3">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">verified</span>
+ Punctual arrival
+ </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">volume_off</span>
+ Quiet ride
+ </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">air</span>
+ Warm cabin
+ </span>
+</div>
+<!-- Note Input -->
+<div class="w-full mt-3">
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-start gap-2">
+<span class="material-symbols-outlined text-outline text-lg mt-0.5">chat_bubble_outline</span>
+<textarea class="w-full bg-transparent font-body-sm text-body-sm text-primary placeholder-outline focus:outline-none resize-none" placeholder="Smooth and quiet ride through E6, thank you Erik!" rows="2">
+</textarea>
+</div>
+</div>
+</div>
+<!-- Tip Section -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-2.5">
+<span class="font-title-sm text-title-sm text-primary">Add Tip for Erik</span>
+<span class="font-label-md text-label-md text-secondary font-medium">100% goes to driver</span>
+</div>
+<div class="grid grid-cols-5 gap-1.5" id="tip-selector">
+<button class="tip-pill h-11 rounded-lg font-label-md text-label-md bg-surface-container-low text-on-surface-variant flex items-center justify-center transition-all active:scale-95" data-amount="0" type="button">
+ No tip
+ </button>
+<button class="tip-pill h-11 rounded-lg font-label-md text-label-md bg-surface-container-low text-on-surface-variant flex items-center justify-center transition-all active:scale-95" data-amount="20" type="button">
+ +20 kr
+ </button>
+<button class="tip-pill h-11 rounded-lg font-label-md text-label-md bg-primary-container text-on-primary flex items-center justify-center font-semibold transition-all active:scale-95 shadow-sm" data-amount="50" type="button">
+ +50 kr
+ </button>
+<button class="tip-pill h-11 rounded-lg font-label-md text-label-md bg-surface-container-low text-on-surface-variant flex items-center justify-center transition-all active:scale-95" data-amount="100" type="button">
+ +100 kr
+ </button>
+<button class="tip-pill h-11 rounded-lg font-label-md text-label-md bg-surface-container-low text-on-surface-variant flex items-center justify-center transition-all active:scale-95" data-amount="custom" type="button">
+ Custom
+ </button>
+</div>
+</div>
+<!-- Transparent Fare Breakdown Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col">
+<div class="flex items-center justify-between pb-3">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Payment Summary</span>
+<p class="font-title-sm text-title-sm text-primary font-bold">Trip Receipt</p>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm text-secondary">receipt_long</span>
+<span>#NO-94812</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-1 font-body-sm text-body-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Base Fare</span>
+<span class="font-medium text-primary">150 NOK</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="flex items-center gap-1.5">
+ Distance
+ <span class="font-label-sm text-label-sm text-outline">(47.2 km)</span>
+</span>
+<span class="font-medium text-primary">620 NOK</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="flex items-center gap-1.5">
+ Time
+ <span class="font-label-sm text-label-sm text-outline">(38 min)</span>
+</span>
+<span class="font-medium text-primary">120 NOK</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Airport Toll Fee</span>
+<span class="font-medium text-primary">60 NOK</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="flex items-center gap-1.5">
+ MVA / VAT
+ <span class="font-label-sm text-label-sm text-outline">(12%)</span>
+</span>
+<span class="font-medium text-primary">140 NOK</span>
+</div>
+<div class="my-2 h-[1px] bg-surface-container">
+</div>
+<div class="flex items-baseline justify-between text-primary">
+<div>
+<span class="font-title-md text-title-md font-bold">Total Paid</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Includes taxes and road tariffs</span>
+</div>
+<span class="font-currency-display text-currency-display text-primary font-bold">1,090 NOK</span>
+</div>
+</div>
+<!-- Payment Method Badge -->
+<div class="mt-4 p-3 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-md bg-[#FF5B24] flex items-center justify-center text-on-tertiary font-bold text-sm shadow-xs">
+ V
+ </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-primary">Paid with Vipps</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-xs">verified_user</span>
+ BankID verified • +47 ••• •• 89
+ </span>
+</div>
+</div>
+<button class="text-primary font-label-md text-label-md font-medium hover:underline flex items-center" type="button">
+ PDF
+ <span class="material-symbols-outlined text-sm ml-0.5">download</span>
+</button>
+</div>
+</div>
+<!-- Actions & Issue Reporting -->
+<div class="flex flex-col gap-3 pt-1 pb-4">
+<button class="w-full h-14 bg-primary-container text-on-primary rounded-lg font-title-sm text-title-sm font-semibold flex items-center justify-center gap-2 shadow-md active:scale-[0.98] transition-all" id="submit-btn" type="button">
+<span>Done & Submit Review</span>
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<div class="flex items-center justify-center gap-6 py-1">
+<button class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant hover:text-primary" type="button">
+<span class="material-symbols-outlined text-base text-outline">help_outline</span>
+<span>Report a problem</span>
+</button>
+<span class="w-1 h-1 rounded-full bg-outline-variant">
+</span>
+<button class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant hover:text-primary" type="button">
+<span class="material-symbols-outlined text-base text-outline">luggage</span>
+<span>Lost an item?</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+ (function() {
+ // Interactive Star Rating
+ const starBtns = document.querySelectorAll('.star-btn');
+ starBtns.forEach(btn => {
+ btn.addEventListener('click', () => {
+ const selectedIndex = parseInt(btn.getAttribute('data-index'), 10);
+ starBtns.forEach(b => {
+ const idx = parseInt(b.getAttribute('data-index'), 10);
+ const icon = b.querySelector('.material-symbols-outlined');
+ if (idx <= selectedIndex) {
+ b.classList.remove('text-outline-variant');
+ b.classList.add('text-amber-400');
+ icon.style.fontVariationSettings = "'FILL' 1";
+ } else {
+ b.classList.remove('text-amber-400');
+ b.classList.add('text-outline-variant');
+ icon.style.fontVariationSettings = "'FILL' 0";
+ }
+ });
+ });
+ });
+
+ // Tip Selector
+ const tipBtns = document.querySelectorAll('.tip-pill');
+ tipBtns.forEach(btn => {
+ btn.addEventListener('click', () => {
+ tipBtns.forEach(b => {
+ b.className = 'tip-pill h-11 rounded-lg font-label-md text-label-md bg-surface-container-low text-on-surface-variant flex items-center justify-center transition-all active:scale-95';
+ });
+ btn.className = 'tip-pill h-11 rounded-lg font-label-md text-label-md bg-primary-container text-on-primary flex items-center justify-center font-semibold transition-all active:scale-95 shadow-sm';
+ });
+ });
+
+ // Submit Action Feedback
+ const submitBtn = document.getElementById('submit-btn');
+ if (submitBtn) {
+ submitBtn.addEventListener('click', () => {
+ submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">refresh</span>
+<span>Submitting...</span>';
+ setTimeout(() => {
+ submitBtn.className = 'w-full h-14 bg-secondary text-on-secondary rounded-lg font-title-sm text-title-sm font-semibold flex items-center justify-center gap-2 shadow-md';
+ submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg">check</span>
+<span>Takk for turen!</span>';
+ }, 600);
+ });
+ }
+ })();
+</script>
+</main>
+</body>
+</html>

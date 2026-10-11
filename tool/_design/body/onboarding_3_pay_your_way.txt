@@ -1,0 +1,134 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<main class="flex flex-col relative w-full pt-safe pb-safe bg-surface min-h-screen">
+<div class="flex flex-col w-full px-margin-mobile pb-space-lg select-none">
+<!-- Top Bar / Skip Action -->
+<div class="flex items-center justify-between w-full h-14">
+<div class="flex items-center space-x-2">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm tracking-wider uppercase">
+ Step 3 of 3
+ </span>
+</div>
+<button class="px-3 py-1.5 rounded-full text-on-surface-variant font-label-md text-label-md active:bg-surface-container transition-colors" type="button">
+ Skip
+ </button>
+</div>
+<!-- Main Illustration Area: Nordic Payment Flow Mosaic -->
+<div class="relative w-full aspect-[4/3] max-h-72 my-space-sm rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between overflow-hidden shadow-sm">
+<!-- Ambient Northern Light / Aurora Gradient Glow -->
+<div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none">
+</div>
+<div class="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-surface-variant/40 blur-2xl pointer-events-none">
+</div>
+<!-- Floating Badge 1: Vipps (Norwegian Market Favorite) -->
+<div class="relative z-10 self-start flex items-center space-x-3 bg-surface-container-lowest px-3.5 py-2.5 rounded-lg shadow-md transform -rotate-1 transition-transform active:scale-95 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-on-tertiary-container flex items-center justify-center text-on-tertiary font-title-sm text-title-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary tracking-tight">Vipps</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">+47 ••• •• 891</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px] ml-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Floating Badge 2: BankID & Card Protection -->
+<div class="relative z-10 self-end flex items-center space-x-3 bg-surface-container-lowest px-4 py-3 rounded-lg shadow-md transform rotate-1 translate-y-1 transition-transform active:scale-95 cursor-pointer">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-1.5">
+<span class="font-title-sm text-title-sm text-on-surface">Nordic Debit</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">BankID</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">•••• 4429 • Instant</span>
+</div>
+</div>
+<!-- Floating Badge 3: Cash / Direct Option -->
+<div class="relative z-10 self-center flex items-center space-x-3 bg-surface-container-lowest/95 backdrop-blur px-3.5 py-2 rounded-lg shadow-sm">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="font-label-lg text-label-lg text-on-surface">Cash on arrival</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">NOK</span>
+</div>
+</div>
+<!-- Decorative Route Trace Line -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+<svg class="w-full h-full" fill="none" height="120" viewbox="0 0 280 120" width="280">
+<path class="text-secondary-fixed-dim" d="M 20 100 C 90 10, 190 110, 260 20" stroke="currentColor" stroke-dasharray="4 6" stroke-width="2">
+</path>
+</svg>
+</div>
+</div>
+<!-- Content Section -->
+<div class="flex flex-col mt-space-md text-left">
+<div class="inline-flex items-center space-x-1.5 mb-space-xs text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-md text-label-md tracking-wider uppercase">Frictionless Mobility</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">
+ Pay your way
+ </h1>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant">
+ Choose seamlessly between Vipps, credit card, or driver cash payment.
+ </p>
+</div>
+<!-- Interactive Demo Selector Row -->
+<div class="grid grid-cols-3 gap-gutter-mobile mt-space-lg mb-space-lg" id="paymentOptions">
+<button class="payment-btn flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm transition-all text-center group active:scale-95 ring-2 ring-transparent" onclick="selectPayment(this, 'Vipps')" type="button">
+<span class="material-symbols-outlined text-[24px] text-on-tertiary-container mb-1" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-title-sm text-title-sm text-primary">Vipps</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Instant tap</span>
+</button>
+<button class="payment-btn flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm transition-all text-center group active:scale-95 ring-2 ring-transparent" onclick="selectPayment(this, 'Card')" type="button">
+<span class="material-symbols-outlined text-[24px] text-primary mb-1">credit_card</span>
+<span class="font-title-sm text-title-sm text-primary">Card</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">BankID</span>
+</button>
+<button class="payment-btn flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-lowest shadow-sm transition-all text-center group active:scale-95 ring-2 ring-transparent" onclick="selectPayment(this, 'Cash')" type="button">
+<span class="material-symbols-outlined text-[24px] text-secondary mb-1">payments</span>
+<span class="font-title-sm text-title-sm text-primary">Cash</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">To driver</span>
+</button>
+</div>
+<!-- Pagination Indicators: 3 Dots (3rd Active Teal Pill) -->
+<div aria-label="Page 3 of 3" class="flex items-center justify-center space-x-2 my-space-md">
+<span class="w-2 h-2 rounded-full bg-outline-variant">
+</span>
+<span class="w-2 h-2 rounded-full bg-outline-variant">
+</span>
+<span class="w-7 h-2 rounded-full bg-secondary-fixed-dim transition-all">
+</span>
+</div>
+<!-- Primary Action CTA -->
+<div class="w-full mt-space-sm">
+<button class="w-full h-14 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm flex items-center justify-center space-x-2 shadow-md active:scale-[0.98] transition-transform" id="startBtn" type="button">
+<span>Get started</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<script>
+ function selectPayment(element, method) {
+ const buttons = document.querySelectorAll('.payment-btn');
+ buttons.forEach(btn => {
+ btn.classList.remove('bg-surface-container-high', 'scale-[0.98]');
+ btn.classList.add('bg-surface-container-lowest');
+ });
+ element.classList.remove('bg-surface-container-lowest');
+ element.classList.add('bg-surface-container-high', 'scale-[0.98]');
+ }
+
+ // Pre-select Vipps as default Nordic highlight
+ document.addEventListener('DOMContentLoaded', () => {
+ const firstOption = document.querySelector('.payment-btn');
+ if (firstOption) selectPayment(firstOption, 'Vipps');
+ });
+</script>
+</main>
+</body>
+</html>

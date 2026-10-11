@@ -1,0 +1,224 @@
+/* STYLES */
+
+/* BODY */
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(15,42,74,0.04)]">
+<div class="h-16 px-margin-mobile flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center text-primary -ml-2" onclick="history.back()">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<img alt="Nordic Ride Logo" class="h-8 w-auto object-contain" src="IMG[040c51c58f.jpg]"/>
+<h1 class="font-title-sm text-title-sm text-primary font-semibold truncate ml-1">Live Trip Tracking</h1>
+</div>
+<div class="min-w-[44px] min-h-[44px] flex items-center justify-end">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary-container" src="IMG[ae0f59597a.jpg]"/>
+</div>
+</div>
+</header>
+<main class="flex flex-col relative w-full pt-16 bg-surface">
+<div class="flex flex-col w-full relative pb-8">
+<!-- Top Live Map View with Dynamic Driver Pathing -->
+<div class="relative w-full h-[270px] overflow-hidden bg-surface-container">
+<!-- Map Canvas Integration with Oslo S Context -->
+<div class="w-full h-full bg-cover bg-center" data-location="Oslo Sentralstasjon, Jernbanetorget 1, 0154 Oslo, Norway" style="background-image: url('IMG[dd3fc6a481.png]')">
+</div>
+<!-- Map Ambience Vignette -->
+<div class="absolute inset-0 bg-gradient-to-b from-primary/30 via-transparent to-primary/60 pointer-events-none">
+</div>
+<!-- Top Status Overlay (Arrival ETA Badge) -->
+<div class="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+<div class="flex items-center gap-2 bg-surface-container-lowest/95 backdrop-blur-md px-3.5 py-2 rounded-full shadow-[0_4px_16px_rgba(15,42,74,0.12)] pointer-events-auto">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75">
+</span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary">
+</span>
+</span>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">3 MIN AWAY</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">• 1.1 km</span>
+</div>
+<button aria-label="Recenter Map" class="w-10 h-10 rounded-full bg-surface-container-lowest/95 backdrop-blur-md flex items-center justify-center text-primary shadow-[0_4px_16px_rgba(15,42,74,0.12)] pointer-events-auto active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-title-md">my_location</span>
+</button>
+</div>
+<!-- Active Route Breadcrumb Graphic & Marker Overlay -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+<svg class="w-full h-full" fill="none" viewbox="0 0 390 270">
+<!-- Route Glow Base -->
+<path d="M 60 70 Q 180 110, 230 180 T 320 220" stroke="#006b5f" stroke-linecap="round" stroke-opacity="0.2" stroke-width="8">
+</path>
+<!-- Solid Route Stroke -->
+<path d="M 60 70 Q 180 110, 230 180 T 320 220" stroke="#006b5f" stroke-dasharray="6 6" stroke-linecap="round" stroke-width="4">
+</path>
+<!-- Destination Pin at Oslo S -->
+<circle cx="320" cy="220" fill="#00152f" r="8">
+</circle>
+<circle cx="320" cy="220" fill="#ffffff" r="3">
+</circle>
+</svg>
+<!-- Moving Driver Car Pin -->
+<div class="absolute left-[38%] top-[38%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="relative bg-primary text-on-primary w-11 h-11 rounded-full flex items-center justify-center shadow-lg ring-4 ring-secondary-container/60">
+<span class="material-symbols-outlined text-secondary-container text-headline-sm">directions_car</span>
+<span class="absolute -bottom-1 w-2.5 h-2.5 bg-primary rotate-45">
+</span>
+</div>
+</div>
+</div>
+<!-- Live Destination Label Pill -->
+<div class="absolute bottom-3 left-4 flex items-center gap-2 bg-primary/90 text-on-primary backdrop-blur-md px-3 py-1.5 rounded-full shadow-md">
+<span class="material-symbols-outlined text-label-lg text-secondary-fixed">near_me</span>
+<span class="font-label-md text-label-md tracking-wide">Oslo S, Jernbanetorget</span>
+</div>
+</div>
+<!-- Main Driver Match Bottom Sheet Card -->
+<div class="relative -mt-4 bg-surface-container-lowest rounded-t-[28px] shadow-[0_-8px_32px_rgba(15,42,74,0.08)] px-margin-mobile pt-3 pb-6 flex flex-col">
+<!-- Visual Sheet Drag Indicator -->
+<div class="w-10 h-1 bg-surface-container rounded-full mx-auto mb-4">
+</div>
+<!-- Confirmation Toast & Climate Neutral Badge -->
+<div class="flex items-center justify-between gap-2 bg-surface-container-low px-3.5 py-2.5 rounded-xl mb-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-primary font-semibold leading-tight">Driver found</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Approaching pickup zone</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary text-base">eco</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">100% Hybrid</span>
+</div>
+</div>
+<!-- Driver & Vehicle Profile Showcase -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 shadow-[0_4px_16px_-2px_rgba(15,42,74,0.06)] flex flex-col gap-4">
+<!-- Upper Section: Driver Info + Photo -->
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative shrink-0">
+<img alt="Erik Larsen" class="w-16 h-16 rounded-full object-cover shadow-[0_2px_8px_rgba(15,42,74,0.1)]" src="IMG[bf1ad1293e.jpg]"/>
+<div class="absolute -bottom-1 -right-1 bg-secondary text-on-secondary rounded-full w-5 h-5 flex items-center justify-center ring-2 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-xs">verified</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-title-md text-title-md text-primary font-bold truncate">Erik Larsen</h2>
+<div class="flex items-center gap-2 mt-0.5">
+<div class="flex items-center gap-0.5 text-on-tertiary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.9</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">1,840+ trips</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium mt-1">Fluent in Norsk, Engelsk</span>
+</div>
+</div>
+<!-- Norwegian Registration Plate Specimen -->
+<div class="shrink-0 flex items-center bg-surface-container-lowest rounded-md px-2 py-1 shadow-sm overflow-hidden">
+<!-- Norway Blue Strip with Flag & 'N' -->
+<div class="bg-primary text-on-primary flex flex-col items-center justify-center px-1.5 py-0.5 -ml-2 -my-1 rounded-l-md mr-2">
+<span class="w-3.5 h-2.5 bg-red-600 rounded-[1px] relative flex items-center justify-center mb-0.5">
+<span class="w-full h-0.5 bg-white">
+</span>
+<span class="h-full w-0.5 bg-white absolute">
+</span>
+</span>
+<span class="text-[9px] font-bold tracking-tight text-white leading-none">N</span>
+</div>
+<!-- Plate Characters -->
+<span class="font-currency-display text-title-md text-on-surface font-extrabold tracking-widest uppercase">EL 12345</span>
+</div>
+</div>
+<!-- Vehicle Card Spotlight -->
+<div class="relative bg-surface-container-low rounded-xl p-3 flex items-center justify-between overflow-hidden">
+<div class="flex flex-col z-10 max-w-[55%]">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Assigned Vehicle</span>
+<span class="font-title-sm text-title-sm text-primary font-bold mt-0.5">Toyota Camry</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="w-2 h-2 rounded-full bg-secondary">
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Hybrid • Silver</span>
+</div>
+</div>
+<div class="relative w-40 h-20 shrink-0 flex items-center justify-end -mr-2">
+<img alt="Toyota Camry Hybrid Silver" class="w-full h-full object-contain" src="IMG[9c86b3db43.jpg]"/>
+</div>
+</div>
+</div>
+<!-- Quick Action Icon Buttons Row -->
+<div class="grid grid-cols-4 gap-2.5 mt-4">
+<!-- Chat Action with Unread Badge -->
+<button class="relative flex flex-col items-center justify-center bg-surface-container-low active:bg-surface-container h-[72px] rounded-2xl transition-colors">
+<div class="relative w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-1">
+<span class="material-symbols-outlined text-headline-sm">chat_bubble</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-on-tertiary-container ring-2 ring-surface-container-lowest">
+</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Chat</span>
+</button>
+<!-- Call Action -->
+<button class="flex flex-col items-center justify-center bg-surface-container-low active:bg-surface-container h-[72px] rounded-2xl transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-1">
+<span class="material-symbols-outlined text-headline-sm">call</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Call</span>
+</button>
+<!-- Share Trip Action -->
+<button class="flex flex-col items-center justify-center bg-surface-container-low active:bg-surface-container h-[72px] rounded-2xl transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-1">
+<span class="material-symbols-outlined text-headline-sm">share_location</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Share</span>
+</button>
+<!-- Safety / Security Shield -->
+<button class="flex flex-col items-center justify-center bg-surface-container-low active:bg-surface-container h-[72px] rounded-2xl transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-1">
+<span class="material-symbols-outlined text-headline-sm">security</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Safety</span>
+</button>
+</div>
+<!-- Trip Reassurance & Pickup Details Card -->
+<div class="mt-4 bg-surface-container-low/70 rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-headline-sm">pin_drop</span>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Pickup spot</span>
+<span class="font-title-sm text-title-sm text-primary font-semibold">Oslo S, Main Entrance</span>
+</div>
+</div>
+<button class="bg-surface-container-lowest px-3 py-1.5 rounded-lg text-primary font-label-md text-label-md font-semibold shadow-sm active:scale-95 transition-transform">
+ Edit
+ </button>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-base">payments</span>
+<span class="font-body-sm text-body-sm text-on-surface">Vipps MobilePay</span>
+</div>
+<span class="font-currency-display text-currency-display text-primary font-bold">289 kr</span>
+</div>
+</div>
+<!-- Cancellation Button / Secondary Intent -->
+<div class="mt-4 flex items-center justify-between gap-3">
+<button class="w-full h-14 rounded-2xl bg-surface-container-low hover:bg-error-container/40 active:bg-error-container text-error font-title-sm text-title-sm font-semibold flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-title-md">close</span>
+ Cancel ride
+ </button>
+</div>
+</div>
+</div>
+<script>
+ // Simple interaction feedback for action buttons
+ document.querySelectorAll('button').forEach(btn => {
+ btn.addEventListener('touchstart', () => {}, {passive: true});
+ });
+</script>
+</main>
+</body>
+</html>
